@@ -1,0 +1,49 @@
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.mat-menu-panel {
+  text-align: center;
+  margin-top: 190px;
+}
+
+.bar {
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  transition: all 0.3s;
+}
+
+.change {
+  background-color: black;
+}
+
+.bar:nth-child(1) {
+  transform: translateY(0);
+}
+
+.bar:nth-child(2) {
+  transform: translateY(0);
+}
+
+.bar:nth-child(3) {
+  transform: translateY(0);
+}
+
+.change:nth-child(1) {
+  transform: rotate(45deg) translate(6.8px, 6.8px);
+}
+
+.change:nth-child(2) {
+  opacity: 0;
+}
+
+.change:nth-child(3) {
+  transform: rotate(-45deg) translate(6.8px, -6.8px);
+}
