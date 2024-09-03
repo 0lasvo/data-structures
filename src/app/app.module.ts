@@ -14,6 +14,7 @@ import {DataService} from "./Components/data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {CdkOverlayOrigin} from "@angular/cdk/overlay";
+import {MatCardImage} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {CdkOverlayOrigin} from "@angular/cdk/overlay";
     MatMenu,
     MatMenuTrigger,
     CdkOverlayOrigin,
-    MatMenuItem
+    MatMenuItem,
+    MatCardImage
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

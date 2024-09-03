@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Quick Sort",
+    "code": "#include <stdio.h>\n\nvoid swap(int* a, int* b) {\n    int t = *a;\n    *a = *b;\n    *b = t;\n}\n\nint partition (int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = (low - 1);\n    for (int j = low; j <= high - 1; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            swap(&arr[i], &arr[j]);\n        }\n    }\n    swap(&arr[i + 1], &arr[high]);\n    return (i + 1);\n}\n\nvoid quickSort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n\nint main() {\n    int arr[] = {10, 7, 8, 9, 1, 5};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    quickSort(arr, 0, n-1);\n    printf(\"Sorted array: \\n\");\n    for (int i=0; i<n; i++)\n        printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+    "sources": "https://www.geeksforgeeks.org/quick-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle":"Teoría",
+        "body": "Quick Sort es un algoritmo de ordenamiento eficiente que utiliza la técnica de divide y vencerás. Selecciona un elemento como pivote y particiona la lista en dos sublistas: una con elementos menores que el pivote y otra con elementos mayores. Luego, aplica el algoritmo recursivamente a las sublistas. Quick Sort tiene una complejidad promedio de O(n log n).",
+        "images": []
+      }
+    ]
+  }
+]

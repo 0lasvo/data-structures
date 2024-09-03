@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div>
 
   <div class="menu-container">
     <div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
@@ -18,11 +18,12 @@
       <button mat-menu-item (click)="toggleMenu(); listas()">Listas</button>
       <button mat-menu-item (click)="toggleMenu(); ordenamiento()">Ordenamiento</button>
       <button mat-menu-item (click)="toggleMenu(); poo()">POO</button>
+      <button mat-menu-item (click)="toggleMenu(); order()">Order</button>
     </mat-menu>
   </div>
 
   <div class="data-container">
-    <div class="row mt-3">
+    <div class="align-content-center">
       <div class="col">
         <div *ngIf="answer!=null">
           <div *ngFor="let ans of answer; index as i; first as isFirst">
@@ -43,7 +44,7 @@
                 <div *ngIf="data.images != null">
                   <div *ngFor="let url of data.images">
                     <div class="text-center">
-                      <img mat-card-image src="{{url}}" class="w-50">
+                      <img mat-card-image src="{{url}}" class="w-50" alt="img">
                     </div>
                   </div>
                   <br>

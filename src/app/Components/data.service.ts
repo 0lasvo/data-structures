@@ -47,4 +47,8 @@ export class DataService {
     return this.http.get("./assets/ArbolesGrafos.json");
   }
 
+  public getOrder(): Observable<any>{
+    return this.http.get("./assets/Order.json");
+  }
+
 }

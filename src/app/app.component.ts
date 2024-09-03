@@ -92,4 +92,11 @@ export class AppComponent implements OnInit {
     });
   }
 
+  public order() {
+    this.service.getOrder().subscribe(data => {
+      this.answer = data;
+      console.log(this.answer);
+    });
+  }
+
 }

@@ -1,0 +1,147 @@
+[
+  {
+    "title": "Ordenamiento por Burbuja (Bubble Sort)",
+    "code": null,
+    "sources": "https://www.geeksforgeeks.org/bubble-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle": "Teoría",
+        "body": "El ordenamiento por burbuja es un algoritmo de ordenamiento sencillo que recorre repetidamente la lista, compara elementos adyacentes y los intercambia si están en el orden incorrecto. Este proceso se repite hasta que la lista está ordenada. Es conocido por su simplicidad, pero no es eficiente para listas grandes.",
+        "images": []
+      },
+      {
+        "subtitle": "C mamut",
+        "body": "",
+        "images": [],
+        "code": [
+          {
+            "title": "Bubble Sort",
+            "code": "void bubbleSort(int arr[], int n) {\n    int i, j;\n    for (i = 0; i < n-1; i++)       \n        for (j = 0; j < n-i-1; j++) \n            if (arr[j] > arr[j+1])\n                swap(&arr[j], &arr[j+1]);\n}\n\nvoid swap(int *xp, int *yp) {\n    int temp = *xp;\n    *xp = *yp;\n    *yp = temp;\n}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Ordenamiento por Selección (Selection Sort)",
+    "code": null,
+    "sources": "https://www.geeksforgeeks.org/selection-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle": "Teoría",
+        "body": "El ordenamiento por selección es un algoritmo de ordenamiento que divide la lista en dos partes: la sublista de elementos ya ordenados y la sublista de elementos restantes por ordenar. Inicialmente, la sublista ordenada está vacía y la sublista desordenada contiene todos los elementos. El algoritmo encuentra el elemento más pequeño en la sublista desordenada, lo intercambia con el primer elemento de la sublista desordenada y lo mueve a la sublista ordenada.",
+        "images": []
+      },
+      {
+        "subtitle": "",
+        "body": "",
+        "images": [],
+        "code": [
+          {
+            "title": "Selection Sort",
+            "code": "void selectionSort(int arr[], int n) {\n    int i, j, min_idx;\n    for (i = 0; i < n-1; i++) {\n        min_idx = i;\n        for (j = i+1; j < n; j++)\n            if (arr[j] < arr[min_idx])\n                min_idx = j;\n        swap(&arr[min_idx], &arr[i]);\n    }\n}\n\nvoid swap(int *xp, int *yp) {\n    int temp = *xp;\n    *xp = *yp;\n    *yp = temp;\n}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Ordenamiento por Inserción (Insertion Sort)",
+    "code": null,
+    "sources": "https://www.geeksforgeeks.org/insertion-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle": "Teoría",
+        "body": "El ordenamiento por inserción es un algoritmo de ordenamiento que construye la lista ordenada de uno en uno. Toma cada elemento de la lista y lo inserta en la posición correcta dentro de la sublista ya ordenada. Es eficiente para listas pequeñas y casi ordenadas.",
+        "images": []
+      },
+      {
+        "subtitle": "",
+        "body": "",
+        "images": [],
+        "code": [
+          {
+            "title": "Insertion Sort",
+            "code": "void insertionSort(int arr[], int n) {\n    int i, key, j;\n    for (i = 1; i < n; i++) {\n        key = arr[i];\n        j = i - 1;\n        while (j >= 0 && arr[j] > key) {\n            arr[j + 1] = arr[j];\n            j = j - 1;\n        }\n        arr[j + 1] = key;\n    }\n}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Ordenamiento Rápido (Quick Sort)",
+    "code": null,
+    "sources": "https://www.geeksforgeeks.org/quick-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle": "Teoría",
+        "body": "El ordenamiento rápido es un algoritmo de ordenamiento eficiente que utiliza el enfoque de divide y vencerás. Selecciona un elemento como pivote y particiona la lista en dos sublistas: una con elementos menores que el pivote y otra con elementos mayores. Luego, aplica recursivamente el mismo proceso a las sublistas.",
+        "images": []
+      },
+      {
+        "subtitle": "",
+        "body": "",
+        "images": [],
+        "code": [
+          {
+            "title": "Quick Sort",
+            "code": "void quickSort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n\nint partition(int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = (low - 1);\n    for (int j = low; j <= high - 1; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            swap(&arr[i], &arr[j]);\n        }\n    }\n    swap(&arr[i + 1], &arr[high]);\n    return (i + 1);\n}\n\nvoid swap(int *a, int *b) {\n    int t = *a;\n    *a = *b;\n    *b = t;\n}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Ordenamiento por Mezcla (Merge Sort)",
+    "code": null,
+    "sources": "https://www.geeksforgeeks.org/merge-sort/",
+    "inPutData": {
+      "images":[]
+    },
+    "outPutData": {
+      "images":[]
+    },
+    "data":[
+      {
+        "subtitle": "Teoría",
+        "body": "El ordenamiento por mezcla es un algoritmo de ordenamiento eficiente que utiliza el enfoque de divide y vencerás. Divide la lista en dos mitades, las ordena recursivamente y luego las combina en una lista ordenada.",
+        "images": []
+      },
+      {
+        "subtitle": "",
+        "body": "",
+        "images": [],
+        "code": [
+          {
+            "title": "Merge Sort",
+            "code": "void mergeSort(int arr[], int l, int r) {\n    if (l < r) {\n        int m = l + (r - l) / 2;\n        mergeSort(arr, l, m);\n        mergeSort(arr, m + 1, r);\n        merge(arr, l, m, r);\n    }\n}\n\nvoid merge(int arr[], int l, int m, int r) {\n    int n1 = m - l + 1;\n    int n2 = r - m;\n    int L[n1], R[n2];\n    for (int i = 0; i < n1; i++)\n        L[i] = arr[l + i];\n    for (int j = 0; j < n2; j++)\n        R[j] = arr[m + 1 + j];\n    int i = 0, j = 0, k = l;\n    while (i < n1 && j < n2) {\n        if (L[i] <= R[j]) {\n            arr[k] = L[i];\n            i++;\n        } else {\n            arr[k] = R[j];\n            j++;\n        }\n        k++;\n    }\n    while (i < n1) {\n        arr[k] = L[i];\n        i++;\n        k++;\n    }\n    while (j < n2) {\n        arr[k] = R[j];\n        j++;\n        k++;\n    }\n}"
+          }
+        ]
+      }
+    ]
+  }
+]

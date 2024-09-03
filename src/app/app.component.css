@@ -1,26 +1,27 @@
 .menu-container {
+  position: fixed;
   display: flex;
   align-items: center;
   padding: 10px;
   background: linear-gradient(to right, black, grey, darkgrey, grey, black);
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   font-family: Consolas, monospace;
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .title {
   font-size: 35px;
   color: white;
   margin-left: 30px;
-  align-content: center;
 }
 
 .data-container {
-
+  padding-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .menu-icon {
