@@ -1,0 +1,68 @@
+[
+  {
+    "title": "TDA Pila",
+    "sources": "https://www.youtube.com/watch?v=KMbf3UHaAs4",
+    "inPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "outPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "data": [
+      {
+        "subtitle": "",
+        "body": "La estructura de datos pila, se rige con el estándar LIFO, es decir, el ultimo que entra es el primero en salir.\n          En las pilas encontramos las siguientes operaciones características:\n          1- Push: Agrega un nuevo elemento en la cima de la pila.\n          2- Pop: Obtiene/borra el ultimo elemento agregado.\n",
+        "images": [],
+        "code": [
+          {
+            "title": "TDA Pila .h",
+            "code": "//\n// Created by josue on 5/11/2022.\n//\n\n#ifndef PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_PILA_H\n#define PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_PILA_H\n\n#include \"Nodo.h\"\n#include \"Utilitites.h\"\n#include <string>\n\nclass Pila : Utilitites{\npublic:\n    Nodo *top;\n    Pila();\n    ~Pila();\n\n    Nodo* push(Animal *animal);\n    Nodo* pop();\n    Nodo* buscarByID(int id);\n\n    bool isEmpty();\n    int tamanio();\n    void vaciar();\n    void print() const;\n    void init();\n    \n};\n\n#endif //PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_PILA_H\n "
+          },
+          {
+            "title": "TDA Pila .cpp",
+            "code": "//\n// Created by josue on 5/11/2022.\n//\n\n#include \"Pila.h\"\n\nPila::Pila(){\n    top = nullptr;\n}\n\nNodo* Pila::push(Animal *animal){\n    Nodo *p, *q;\n    p = new Nodo();\n    p->data = animal;\n    p->next = nullptr;\n    if (top != nullptr) {\n        q = top;\n        while (q->next != nullptr) {\n            q = q->next;\n        }\n        q->next = p;\n    } else {\n        top = p;\n        p->next = nullptr;\n    }\n    return top;\n}\n\nNodo* Pila::pop(){\n    if(isEmpty()){\n        string error = \"Error, no se puede realizar la operación porque la lista se encuentra vacia\";\n        showError(&error);\n        return nullptr;\n    }\n    Nodo *p = top;\n    top = p->next;\n    return p;\n}\n\nNodo* Pila::buscarByID(int id){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n        return nullptr;\n    }\n    Nodo *p = top;\n    int cont = 0;\n    while(p != nullptr){\n        if(p->data->getId() == id){\n            cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n        }\n        p = p->next;\n        cont++;\n    }\n    return p;\n}\n\nbool Pila::isEmpty(){\n    return top == nullptr;\n}\n\nint Pila::tamanio(){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n        return 0;\n    }\n    Nodo *p = top;\n    int cont = 0;\n    while(p != nullptr){\n        p = p->next;\n        cont++;\n    }    \n    return cont;\n}\n\nvoid Pila::vaciar(){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n    }else{\n        Nodo *p = top;\n        while(p != nullptr){\n            p = p->next;\n        }  \n    }\n}\nvoid Pila::print() const{\n        Nodo *p = top;\n    int cont = 0;\n    while(p != nullptr){\n        cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n        p = p->next;\n        cont++;\n    }    \n}\n\nvoid Pila::init(){\n    top = nullptr;\n}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "TDA Cola",
+    "sources": "https://www.youtube.com/watch?v=JDlhpEuLUrQ",
+    "inPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "outPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "data": [
+      {
+        "subtitle": "",
+        "body": "Las colas son una estructura de datos parecida a las colas en la vida real. Es decir, nos incorporamos al final de la cola y conforme avanza llegaremos a la cabeza de la cola, donde terminara nuestro progreso.\n            Una cola se puede componer de una lista enlazada, solo es necesario unir nodos.\n            Las operaciones de una cola son parecidas a las de una lista, pero, son solo 3:\n            1-Encolar:La operación encolar agrega elementos al final de la cola, similar a la operación insertar el final de una lista.\n            2-Consultar:Obtiene el siguiente elemento de la cola.\n            3-Eliminar: Elimina un elemento al principio de la cola, esto se hace una vez se procesa el dato\n",
+        "images": [],
+        "code": [
+          {
+            "title": "TDA Cola .h",
+            "code": "//\n// Created by josue on 5/11/2022.\n//\n\n#ifndef PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_COLA_H\n#define PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_COLA_H\n\n#include \"Nodo.h\"\n#include \"Utilitites.h\"\n#include <string>\n\nclass Cola : Utilitites{\npublic:\n    Nodo *first;\n    Nodo *last;\n\n    Cola();\n    ~Cola();\n\n    Nodo* queue(Animal *animal);\n    Nodo* dequeue();\n    \n    Nodo* buscarByID(int id);\n\n    bool isEmpty();\n    int tamanio();\n    void vaciar();\n    void print() const;\n    void init();\n};\n\n#endif //PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_COLA_H\n"
+          },
+          {
+            "title": "TDA Cola .cpp",
+            "code": "//\n// Created by josue on 5/11/2022.\n//\n\n#include \"Cola.h\"\n#include \"Utilitites.h\"\n\nCola::Cola(){\n    first = nullptr;\n    last = nullptr;\n}\n\nNodo* Cola::queue(Animal *animal){\n    Nodo *p, *q;\n    p = new Nodo();\n    p->data = animal;\n    p->next = nullptr;\n    if (first != nullptr) {\n        q = last;\n        while (q->next != nullptr) {\n            q = q->next;\n        }\n        q->next = p;\n    } else {\n        first = p;\n        last = p;\n        p->next = nullptr;\n    }\n    return last;\n}\n\nNodo* Cola::dequeue(){\n    Nodo *p, *q;\n    if(last != nullptr && first != nullptr){\n        p = first;\n        first = p->next;\n        return p;\n    }else{\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n        return nullptr;\n    }\n\n}\n\nNodo* Cola::buscarByID(int id){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n        return nullptr;\n    }\n    Nodo *p = first;\n    int cont = 0;\n    while(p != last){\n        if(p->data->getId() == id){\n            cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n        }\n        p = p->next;\n        cont++;\n    }\n    return p;\n}\n\nint Cola::tamanio(){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n        return 0;\n    }\n    Nodo *p = first;\n    int cont = 0;\n    while(p != nullptr){\n        p = p->next;\n        cont++;\n    }    \n    return cont;\n}\n\nbool Cola::isEmpty(){\n    if(first == last || (first != nullptr && last != nullptr)){\n        return false;\n    }\n    return true;\n}\n\nvoid Cola::print() const{\n    Nodo *p = first;\n    int cont = 0;\n    while(p != nullptr){\n        cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n        p = p->next;\n        cont++;\n    }    \n}\n\nvoid Cola::vaciar(){\n    if(isEmpty()){\n        string error = \"Error, la lista se encuentra vacia\"; \n        showError(&error);\n    }else{\n        Nodo *p = first;\n        while(p != nullptr){\n            p = p->next;\n            \n        }  \n    }\n}\n\nvoid Cola::init(){\n    first = nullptr;\n    last = nullptr;\n}"
+          }
+        ]
+      }
+    ]
+  }
+]

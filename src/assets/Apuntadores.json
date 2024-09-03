@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Apuntadores",
+    "code": [
+      {
+        "title": "Apuntadores ejemplo",
+        "code": "int variable;  //Creamos un entero\nint * apuntador = &variable; //Creamos una apuntador a la posición en memoria de \"variable\"\n*apuntador = 20;  //Le asignamos un valor a esa posición de memoria.\n\ndelete [] apuntador;   //Después de operar con punteros es necesario liberar la memoria.\npuntero = NULL;"
+      }
+    ],
+    "sources": "Gestión de Memoria - Sistemas Operativos I. (2018.). Google Sites.\n https://sites.google.com/site/sisoper1/home/gestion-de-memoria \n      Apuntadores. (2016). Introducción a la Programación Estructurada.\n http://programacionestructuradarrr.blogspot.com/2016/09/apuntadores.html \n      operador de indirección y el operador de dirección? (s. f.-a). Stack Overflow en español.\n https://es.stackoverflow.com/questions/104123/cual-es-la-diferencia-entre-el-operador-de-indirección-y-el-operador-de-dirección",
+    "inPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "outPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "data": [
+      {
+        "subtitle": "",
+        "body": "Un puntero es una variable que almacena la dirección de memoria de un objeto. Los punteros se usan ampliamente en C y C++ para tres propósitos principales:\n- Para asignar nuevos objetos\n- Para pasar funciones a otras funciones\n- Para iterar sobre elementos en matrices u otras estructuras de datos.\nEn la programación de estilo C, se usan punteros básicos para todos estos escenarios. Sin embargo, los punteros básicos son el origen de muchos errores de programación graves. Por lo tanto, se desaconseja encarecidamente su uso, excepto cuando proporcionan una ventaja significativa de rendimiento y no hay ambigüedad en cuanto a qué puntero es el puntero propietario que es responsable de eliminar el objeto. El lenguaje C++ moderno proporciona punteros inteligentes para asignar objetos, iteradores para recorrer estructuras de datos y expresiones lambda para pasar funciones. Al usar estas características del lenguaje y de la biblioteca en lugar de punteros básicos, hará que su programa sea más seguro, más fácil de depurar y más fácil de entender y mantener.",
+        "images": []
+      },
+      {
+        "subtitle": "Los punteros y el ampersand &",
+        "body": "El ampersand es un operador de C++ y es comúnmente utilizado para los punteros. Este operador nos permite obtener la dirección de memoria de una variable cualquiera y es justo esto (la dirección en memoria) lo que utilizan los punteros para referenciar valores.",
+        "images": [],
+        "code": [{
+          "title":"El ampersand en apuntadores",
+          "code": "int var = 250;  //Una variable cualquiera\ncout<<&var; //Imprime la direccion de memoria en la que se encuentra almacenada la variable"
+        }]
+      },
+      {
+        "subtitle": "Los apuntadores y el asterisco *",
+        "body": "El asterisco es, por decirlo de alguna forma, el operador por excelencia de los punteros. SU utilidad radica en que si el valor de dicho apuntador corresponde a una dirección de memoria, el asterisco nos permite resolverla y acceder al valor almacenado allí. Viéndolo desde otro enfoque, un apuntador es únicamente una dirección de memoria (un número) y el asterisco es el que hace la magia de obtener el valor referenciado por dicha dirección.",
+        "images": [],
+        "code": [
+          {
+            "title":"El asterisco en apuntadores",
+            "code": "char *apuntador = NULL; //Declaramos un puntero\n//Es recomendable inicializar un puntero en null, para detectar errores fácilmente\n\nchar letra; //Declaramos una variable primitiva\n\napuntador = &letra; //Asignamos al apuntador la dirección de memoria de la variable primitiva\n\n*apuntador = 'x'; //Modificamos la variable a través del apuntador\n\ncout << letra; //Muestra x por pantalla"
+          }
+        ]
+      },
+      {
+        "subtitle": "Aritmetica de apuntadores",
+        "body": "Suma y resta\nLa suma y resta de apuntadores funciona unicamente cuando los apuntadores señalan lugares de memoria del mismo arreglo integrado. Usar enteros para sumar o restar tiene diferente resultado segun el tipo de objeto al cual hace referencia, siendo por ejemplo en el caso de los «int» tomando 4 bytes; Si fuera el caso que la posicion que se apunta fuera la 2500 y, se le incrementa en 1, se estaria apuntando ahora a 2504. Se pueden emplear operadores de incremento y decremento tales como “++”,“--”,“+=”,etc. \nTambien se pueden hacer operaciones usando otros punteros para llevar a cabo la suma o resta, sin embargo estos habran de formar parte del mismo arregla integrado para surtir efecto. \n\nAsignacion de apuntadores\nSe puede asignar el valor de un apuntador a otro mas siempre que sean del mismo tipo, en los casos que no se puede castear usando “reinterpreter_cast”, sin embargo a un apuntador del tipo void no lo podemos incluir en esto pues el compilador no es capaz de inferir cuantos bytes consta este, por lo que se habra de usar “reinterpreter_cast” antes de asignarle.\n\nApuntador void\nEn el caso de estos apuntadores el compilador no conoce el tipo de dato especifico que apunta este pues estos apuntadores son genericos y pueden apuntar distintos tipos de datos, a diferencia de un tipo “int” que el compilador conoce cuantos bytes usa. Para estos no se le puede determinar el numero de bytes\n\nComparacion entre apuntadores\nLa comparacion de apuntadores se emplea para conocer si existe igualdad o de operaciones relacionales, siendo estas ultimas en el empleo de un mismo arreglo integrado, pues de otra manera no tendria sentido; Para estas se intenta conocer cual de estos espacios tiene un mayor/menor numeracion que el otro. Un uso comun es descubrir si alguno de estos esta apuntando a 0 o null.",
+        "images": [],
+        "code": [
+          {
+            "title":"Suma y resta de apuntadores",
+            "code": "//Las operaciones se emplean unicamente cuando los punteros apuntan a un mismo arreglo integrado, siendo pues la diferencia entre los puestos de memoria\nint x = 0;\nint *ip;\nip = &x;  // ip ahora apunta al entero de x\n*ip += 3; // x ahora es 3\n*ip -=1; // x ahora es 2"
+          }
+        ]
+      },
+      {
+        "subtitle": "Referencia",
+        "body": "Referencia de un puntero: Se puede alterar una variable a la que apunta un puntero. Para ello se usa el operador de referencia, que es el asterisco: \n          * puntero = 45;",
+        "images": []
+      }
+    ]
+  }
+]

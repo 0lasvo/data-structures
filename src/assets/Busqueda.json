@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Busquedas",
+    "sources": "https://uneginginf05.es.tl/M-e2-todo-de-Busqueda-Secuencial-y-Binaria.htm",
+    "inPutData": {
+      "images": []
+    },
+    "outPutData": {
+      "images": []
+    },
+    "data": [
+      {
+        "subtitle": "Busqueda binaria",
+        "body": "La búsqueda binaria es el método, donde si el arreglo o vector esta bien ordenado, se reduce sucesivamente la operación eliminando repetidas veces la mitad de la lista restante.\nEl proceso comienza comparando el elemento central del arreglo con el elemento buscado. Si ambos coinciden finaliza la búsqueda. Si no ocurre así, el elemento buscado será mayor o menor en sentido estricto que el elemento central del arreglo. Si el elemento buscado es mayor se procede a hacer búsqueda binaria en el subarray superior, si el elemento buscado es menor que el contenido de la casilla central, se debe cambiar el segmento a considerar al segmento que está a la izquierda de tal sitio central.\n",
+        "images": ["./assets/images/busqueda-binaria.webp"],
+        "code": [{
+          "title": "Busqueda binaria",
+          "code": "int binarySearch(int arr[], int l, int r, int x)\n      {\n          if (r >= l) {\n      int mid = l + (r - l) / 2;\n       \n      // Si el elemento actual esta presente en el medio\n      if (arr[mid] == x)\n          return mid;\n      // retornar el medio\n       \n      //si el elemento es más pequeño que el medio\n      // entonces debe de estar presente en el subarray izquierdo\n      if (arr[mid] > x)\n          return binarySearch(arr, l, mid - 1, x);\n             // si no esta el elemento solo puede estar\n      //en el subarray derecho\n      return binarySearch(arr, mid + 1, r, x);\n          }\n       \n          //Si el elemento no se encuentra en el arreglo\n          // retornamos -1\n          return -1;\n      }"
+        }]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "sources": "https://uneginginf05.es.tl/M-e2-todo-de-Busqueda-Secuencial-y-Binaria.htm",
+    "inPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "outPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "data": [
+      {
+        "subtitle": "Busqueda Secuencial",
+        "body": "La búsqueda secuencial, también se le conoce como búsqueda lineal.\nSupongamos una colección de registros organizados como una lista lineal. El algoritmo básico de búsqueda secuencial consiste en empezar al inicio de la lista e ir a través de cada registro hasta encontrar la clave indicada (k) o hasta el final de la lista.\nEste método consiste en recorrer el arreglo o vector elemento a elemento e ir comparando con el valor buscado (clave). Se empieza con la primera casilla del vector y se observa una casilla tras otra hasta que se encuentre el elemento buscado o se han visto todas las casillas. El resultado de la búsqueda es un solo valor, y será la posición del elemento buscado o cero. \n",
+        "code": [{
+          "title": "Busqueda binaria",
+          "code": "int search(int arr[], int N, int x){\n\tint i;\n\t//se recorre el arreglo\n\tfor (i = 0; i < N; i++)\n\t//Si el elemento actual es igual al valor x\n\tif (arr[i] == x)\n\t\t//Retornamos el valor de i (la posicion)\n\t\treturn i;\n\treturn -1;\n}"
+        }]
+      }
+    ]
+  }
+]

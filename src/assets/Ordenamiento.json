@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Metodos de ordenamiento",
+    "sources": "https://itslr.edu.mx/archivos2013/TPM/temas/s3u5.html",
+    "inPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "outPutData": {
+      "images": [
+        "a",
+        "b"
+      ]
+    },
+    "data": [
+      {
+        "subtitle": "Ordenamiento SelectSort",
+        "body": "El algoritmo por selección tiene una complejidad de O(n^2), el algoritmo para realizar el mismo numero de comparaciones, es decir que por cada elemento realizara una comparacion.",
+        "images": ["./assets/images/selectionsortnew.png"],
+        "code": [{
+          "title": "SelectSort",
+          "code": "void swap(int *firstValue, int *secondValue){\n    //Creamos una variable temporal y asignamos el primer valor recibido a este mismo\n    int temp = *firstValue;\n    //Cambiamos el valor de la primer variable por el de la segunda\n    *firstValue = *secondValue;\n    //Cambiamos el valor de la segunda por la primera\n    *secondValue = firstValue;\n}\nvoid selectionSort(int arr[], int n)\n{\n    int i, j, min_idx;\n    //Recorremos el arreglo\n    for (i = 0; i < n-1; i++)\n    {\n       \n        min_idx = i;\n        //Recorremos el arreglo apartir de la posición i+1 para revisar los demás elementos\n        for (j = i+1; j < n; j++)\n            //Comparamos si el elemento en la posición j es menor que la posición index\n            if (arr[j] < arr[min_idx])\n                //si la posición j es menor que la posición index se le asigna el valor de j al index\n                min_idx = j;\n \n        //En caso de que index sea diferente al valor de i\n        if(min_idx!=i)\n            //Realizamos el cambio de posición en los valores de la variable\n            swap(&arr[min_idx], &arr[i]);\n    }\n}"
+        }]
+      },
+      {
+        "subtitle": "Ordenamiento ShellSort",
+        "body": "El ordenamiento ShellSort primero mueve los elementos mas grandes, de manera que los elementos con valores small se ordenaran con menores movimientos hasta su posicion final.",
+        "images": ["./assets/images/shell.png"],
+        "code": [{
+          "title": "Shell sort",
+          "code": "int shellSort(int arr[], int tamanio){\n    //Recorremos el arreglo dividiendo el tamaño por en medio y por cada iteración lo dividiremos entre 2 para asi obtener el valor de enmedio\n    for (int gap = tamanio/2; gap > 0; gap /= 2){\n        //Recorremos desde la mitad de tamanio mientras que i sea menor a tamanio\n        for (int i = gap; i < tamanio; i ++){\n            //asiganamos el valor de la posición a una variable temporal\n            int temp = arr[i];\n            int j;            \n\n            // cambia los elementos ordenados por valores anteriores\n            // hasta que se encuentra la ubicación correcta para arr[i]\n            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)\n                arr[j] = arr[j - gap];\n              \n            // Asignamos el valor temporal a la posición correcta\n            arr[j] = temp;\n        }\n    }\n    return 0;\n}"
+        }]
+      },
+      {
+        "subtitle": "Ordenamiento Burbuja mejorado",
+        "body": "Mediante el metodo burbuja, dado un arreglo de n elementos, se requiere de n-1 pasos para ordenar el arreglo.",
+        "images": []
+      },
+      {
+        "subtitle": "Ordenamiento QuickSort",
+        "body": "El ordenamiento quicksort fue creado por el cientifico britanico Ceilan Hoare en Colombo.\n            La complejidad del algoritmo en el mejor de los casos es O(nLog2n)\n            La forma en la que funciona este algoritmo es que simultaneamente se recorre por la izquierda a la par por la derecha. En el punto en el que se cruzan los indices sera la posicion adecuada para colocar el pivote porque sabemos que a uno de los lados todos los elementos son menores y que los del otro lado son mayores.\n",
+        "images": ["./assets/images/maxresdefault.jpg"],
+        "code": [{
+          "title": "QuickSort",
+          "code": "void swap(int *firstValue, int *secondValue){\n    //Creamos una variable temporal y asignamos el primer valor recibido a este mismo\n    int temp = *firstValue;\n    //Cambiamos el valor de la primer variable por el de la segunda\n    *firstValue = *secondValue;\n    //Cambiamos el valor de la segunda por la primera\n    *secondValue = firstValue;\n}\nint partition (int arr[], int low, int high) \n{ \n    // Creamos pivote que sera el elemento que se colocara en la posición correcta\n    int pivot = arr[high];\n    // Índice del elemento más pequeño e indica la posición correcta del pivote \n    int i = (low - 1); \n  \n    for (int j = low; j <= high - 1; j++){ \n        //si el valor actual es más pequeño que el pivote\n        if (arr[j] < pivot){ \n            //entonces incrementamos el valor de i\n            i++;\n            //además, cambiamos el valor de la posición a la posición j\n            swap(&arr[i], &arr[j]); \n        } \n    } \n    //intercambiamos el valor de la posición i+1 por el valor de la posición inicial\n    swap(&arr[i + 1], &arr[high]); \n    return (i + 1); \n} \n\n//Al inicio recibimos el arreglo, el valor minimo del arreglo y el tamaño del arreglo\nvoid quickSort(int arr[], int low, int high) { \n    if (low < high){ \n        //Obtenemos la partición del arreglo\n        int pi = partition(arr, low, high); \n        //Recursivamente mandamos a llamar la función quicksort con el valor más alto como pi-1 para ordenar la primera mitad\n        quickSort(arr, low, pi - 1); \n    \n        //Recursivamente mandamos a llamar la función quicksort con el valor más bajo como pi+1 para ordenar la segunda mitad\n        quickSort(arr, pi + 1, high); \n    } \n} "
+        }]
+      },
+      {
+        "subtitle": "Ordenamiento MergeSort",
+        "body": "El algoritmo mergesort es un algoritmo que funciona bajo el concepto divide y venceras. Fue desarrollado en 1945 por John Von Neumann.\n            La complejidad del algoritmo es de O(nLogn)\n            El ordenamiento funciona dividiendo la lista en 2 sublistas. Ordena recursivamente cada sublista con el metodo merge.\n",
+        "images": ["./assets/images/merge-sort-demo-step-4.webp"],
+        "code":[{
+          "title": "MergeSort",
+          "code": "// Mezclamos 2 subarreglos del arreglo principal\n// El primer sub arreglo es arr[begin..mid]\n// El segundo sub arreglo es arr[mid+1..end]\nvoid merge(int array[], int const left, int const mid,\n           int const right){\n    auto const subArrayOne = mid - left + 1;\n    auto const subArrayTwo = right - mid;\n \n    // Creamos los arreglos temporales\n    auto *leftArray = new int[subArrayOne],\n         *rightArray = new int[subArrayTwo];\n \n    // Copiamos la información del arreglo a los sub arreglos leftArray[] y rightArray[]\n    for (auto i = 0; i < subArrayOne; i++)\n        leftArray[i] = array[left + i];\n    for (auto j = 0; j < subArrayTwo; j++)\n        rightArray[j] = array[mid + 1 + j];\n \n    auto indexOfSubArrayOne\n        = 0,// Inicializamos el index del primer subarreglo\n        indexOfSubArrayTwo\n        = 0,// Inicializamos el index del segundo subarreglo\n    int indexOfMergedArray\n        = left;//Inicializamos el index del arreglo mezclado\n        \n    //Mezclamos los arreglos temporales al arreglo array[left..right]\n    while (indexOfSubArrayOne < subArrayOne\n           && indexOfSubArrayTwo < subArrayTwo) {\n        if (leftArray[indexOfSubArrayOne]\n            <= rightArray[indexOfSubArrayTwo]) {\n            array[indexOfMergedArray]\n                = leftArray[indexOfSubArrayOne];\n            indexOfSubArrayOne++;\n        }\n        else {\n            array[indexOfMergedArray]\n                = rightArray[indexOfSubArrayTwo];\n            indexOfSubArrayTwo++;\n        }\n        indexOfMergedArray++;\n    }\n    //Copiamos los elementos restantes del arreglo left[] si es que hay alguno\n    while (indexOfSubArrayOne < subArrayOne) {\n        array[indexOfMergedArray]\n            = leftArray[indexOfSubArrayOne];\n        indexOfSubArrayOne++;\n        indexOfMergedArray++;\n    }    \n    //Copiamos los elementos restantes del arreglo right[] si es que hay alguno\n    while (indexOfSubArrayTwo < subArrayTwo) {\n        array[indexOfMergedArray]\n            = rightArray[indexOfSubArrayTwo];\n        indexOfSubArrayTwo++;\n        indexOfMergedArray++;\n    }\n    delete[] leftArray;\n    delete[] rightArray;\n}\n\n// begin es para el index izquierdo\n// end es para el index derecho del subarreglo\nvoid mergeSort(int array[], int const begin, int const end)\n{\n    if (begin >= end)\n        return; // Return para terminar la recursividad\n \n    auto mid = begin + (end - begin) / 2;\n    mergeSort(array, begin, mid);\n    mergeSort(array, mid + 1, end);\n    merge(array, begin, mid, end);\n}\n "
+        }]
+      },
+      {
+        "subtitle": "Ordenamiento InsertSort",
+        "body": "Este ordenamiento es la forma mas natural para el humano de ordenar y puede usarse para ordenar un mazo de cartas. Fue creado por Benjamin Bustos y Patricio Poblete.\n            Tiene una complejidad de O(n^2)",
+        "images": [],
+        "code":[{
+          "title": "InsertSort",
+          "code": "void insertionSort(int arr[], int n) \n{ \n    int i, key, j; \n    for (i = 1; i < n; i++)\n    { \n        key = arr[i]; \n        j = i - 1; \n        // Movemos los elementos del arreglo\n        // el elemento más grande que key se mueve a la siguiente posicion\n        while (j >= 0 && arr[j] > key){ \n            arr[j + 1] = arr[j]; \n            j = j - 1; \n        } \n        arr[j + 1] = key; \n    } \n} "
+        }]
+      },
+      {
+        "subtitle": "Ordenamiento burbuja",
+        "body": "El metodo de ordenamiento BubbleSort es uno de los algoritmos mas sencillos de ordenamiento. Funciona revisando cada elemento de la lista que se ordena, intercambiando los elemento en caso de no estar en el orden indicado.\n            El algoritmo realiza varios recorridos en la lista hasta no necesitar mas intercambios.\n            El autor del algoritmo no se conoce bien, pero parece que este algoritmo pertenece a Edwar H. Friedge, por unas de sus publicaciones sobre ordenamiento en sistemas de computadoras electronicas.\n            La complejidad de este metodo depende de como se encuentren ordenados los elementos, pero podemos decir que su complejidad es de O(n^2)\n",
+        "images": ["./assets/images/sort-burbuja-5pasadas.jpg"],
+        "code":[{
+          "title":"burbuja",
+          "code": "void swap(int *firstValue, int *secondValue){\n    //Creamos una variable temporal y asignamos el primer valor recibido a este mismo\n    int temp = *firstValue;\n    //Cambiamos el valor de la primer variable por el de la segunda\n    *firstValue = *secondValue;\n    //Cambiamos el valor de la segunda por la primera\n    *secondValue = firstValue;\n}\nvoid bubbleSort(int arr[], int n)\n{\n    int i, j;\n    //Recorremos el arreglo mientras i sea menor que n\n    for (i = 0; i < n - 1; i++)\n\n        for (j = 0; j < n - i - 1; j++)\n            // Si el valor en la posicion J es mayor que en la posición j+1\n            if (arr[j] > arr[j + 1])\n                //Cambiamos el valor de la posición j a la posición j+1 y el valor de la posición j+1 a la posición j \n                swap(arr[j], arr[j + 1]);\n}"
+        }]
+
+      }
+    ]
+  }
+]

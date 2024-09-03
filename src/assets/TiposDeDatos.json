@@ -1,0 +1,51 @@
+[
+    {
+      "title": "Tipo de datos",
+      "code": null,
+      "sources": "Tipos de Datos en Programación. (2020). Descubrearduino.com.\n      https://descubrearduino.com/tipos-de-datos/\n      ▷ ¿Qué TIPOS DE DATOS existen en programación? 【definición】. (s. f.). Lenguajes de           programación.\n https://lenguajesdeprogramacion.net/diccionario/que-tipos-datos-existen-en-programacion/\n           5.3 Utilización de arreglos. - samei. (s. f.). Google Sites.\n            https://sites.google.com/site/programacionyal/home/unidad-5/5-3-utilizacion-de-arreglos\n            NetApp. (2019, 14 de febrero). ¿Qué son los contenedores? - Ventajas y casos prácticos |    NetApp. Data Management Solutions for the Cloud | NetApp.\n      https://www.netapp.com/es/devops-solutions/what-are-containers/Interfaces. (s. f.). Campus de Gipuzkoa - UPV/EHU. \n     http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/interfaces.html",
+      "inPutData": {
+        "images":[
+          "a",
+          "b"
+        ]
+      },
+      "outPutData": {
+        "images":[
+          "a",
+          "b"
+        ]
+      },
+      "data":[
+        {
+          "subtitle":"",
+          "body": "Un tipo de dato informatico, es un atributo de los datos que indica al ordenador sobre la calse de datos que se va a manejar. \nEsto incluye imponer restricciones en los datos, como que valores pueden tomar y que operaciones se pueden realizar. ",
+          "images": []
+        }, 
+        {
+          "subtitle":"Modelo de representacion en memoria(Entero, Real, Caracter, Apuntador y booleano)",
+          "body": "Entero->Un numero entero puede tener un valor positivo, negativo o cero. No puede ser fraccion ni puede incluir decimales.\nReal(Float)->Representa la aproximacion de un numero flotante(real), es decir numeros con decimales.\nCaracter(char)->Cualquier numero, letra, espacio o simbolo que pueda ser introducido en una computadora. \n\tCada caracter requiere un byte.\nBooleano->Usado para declaraciones verdaderas o falsas.",
+          "images": []
+        },
+        {
+          "subtitle":"Modelo y uso de los tipos de datos estructurados: Arreglos y registro",
+          "body": "Los datos estructurados; coleccionan de datos caracterizada por su organizacion y las operaciones que se pueden realizar sobre ellas.",
+          "images": []
+        },
+        {
+          "subtitle":"Arreglo",
+          "body": "Los arreglos son la estructura mas sencilla. Representan un grupo de elementos relacionados que tienen el mismo nombre y tipo de dato. Para poder acceder a los diferentes valores se utiliza de indexacion.\n\tLos arreglos nos permiten acceder a grandes cantidades de sencilla rapida sin gastar mucha memoria.\n\tSu desventaja es que una vez declarado, no se puede modificar el size",
+          "images": []
+        },
+        {
+          "subtitle":"Registro",
+          "body": "Los registros son datos estructurados formados por elementos heterogeneos y logicamente relacionados. \nUn registro, normalmente almacena un conjunto de datos que estan relacionados entre si.",
+          "images": []
+        },
+        {
+          "subtitle":"Objetos y metodos de interfaz",
+          "body": "Un delimitados abstracto es un objeto que contiene otros objetos que pueden ser incluidos o eliminados dinamicamente, a diferencia de la que ocurren en una composicion en la que esta relacion se fija durante el tiempo de compilacion.\nLos metodos de interfaz son una colección de metodos abstractos y constantes.",
+          "images": []
+        }
+      ]
+    }
+  ]

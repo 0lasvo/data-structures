@@ -1,0 +1,86 @@
+[
+    {
+      "title": "Programacion orientada a objetos",
+      "sources": "https://desarrolloweb.com/articulos/499.php",
+      "inPutData": {
+        "images":[
+          "a",
+          "b"
+        ]
+      },
+      "outPutData": {
+        "images":[
+          "a",
+          "b"
+        ]
+      },
+      "data":[
+        {
+          "subtitle":"Clase",
+          "body": "Una clase es un tipo de dato definido por el programador específicamente para crear objetos. Se dice que cada objeto es una instancia particular de alguna clase de objetos. La clase define las propiedades comunes de un conjunto de objetos. El programador define una clase como lo hace con un tipo de dato compuesto y le da un nombre. Una vez definida la clase, los objetos se crean a partir de ésta.",
+          "images": [],
+          "code":[{
+              "title": "Clase Empleado de ejemplo",
+              "code": 
+              "class Empleado {\n        private:\n            char* m_nombre;\n            char* m_departamento;\n            char* m_posicion;\n            long m_salario;    \n        public:\n            void ImprimirInfo();\n            void SetNombre( char* nombre ) { m_nombre = nombre }\n            void SetDepartamento( char * departamento) { m_departamento = departamento }\n            void SetPosicion ( char* posicion ) { m_posicion = posicion }\n            void SetSalario ( long salario ) { m_salario = salario }\n            const char* GetNombre( ){ return m_nombre }\n            const char* GetDepartamento( ){ return m_departamento }\n            const char* GetPosicion( ){ return m_posicion }\n           const char* GetSalario( ){ return m_salario }\n    };"
+            }]
+        },
+        {
+          "subtitle":"Atributos",
+          "body": "Los atributos son las propiedades que tendran nuestra plantilla y hara referencia a un valor en concreto. Esta propiedad debe de tener un nombre y un tipo de dato.\nAdemas es importante saber que cada lenguaje de programacion tiene diferentes reglas para nombrar variables.",
+          "images": []
+        }, 
+        {
+          "subtitle":"Modificador de acceso de clases",
+          "body": "Los modificadores de acceso permiten al diseñador de una clase determinar quien accede a los datos y métodos miembros de una clase. Los modificadores de acceso preceden a la declaración de un elemento miembro de la clase (ya sea atributo o método), los más comunes son los siguientes:",
+          "images": []
+        }, 
+        {
+          "subtitle":"1° Public",
+          "body": " Este modificador nos ayuda a tener acceso desde cualquier parte del proyecto ",
+          "images": [],
+          "code":[{
+            "title":"Ejemplo public",
+            "code":"class Circle\n{\n    public:\n        double radius;\n         \n        double  compute_area()\n        {\n            return 3.14*radius*radius;\n        }\n     \n};"
+          }]
+        }, 
+        {
+          "subtitle":"2° Private",
+          "body": "En el que solo se tendra acceso en la clase y no en clases hijo.",
+          "images": [],
+          "code":[{
+            "title":"Ejemplo private",
+            "code":"class Circle\n{  \n    // private data member\n    private:\n        double radius;\n      \n    // public member function   \n    public:   \n        double  compute_area()\n        {   // member function can access private\n            // data member radius\n            return 3.14*radius*radius;\n        }\n     \n};"
+          }]
+        }, 
+        {
+          "subtitle":"3° Protected",
+          "body": "Este caso es similar al privado pero se podra tener acceso desde variables hijas.",
+          "images": [],
+          "code":[{
+            "title":"Ejemplo protected",
+            "code":"class Parent\n{  \n    // protected data members\n    protected:\n    int id_protected;\n    \n};\n \n// sub class or derived class from public base class\nclass Child : public Parent\n{\n    public:\n    void setId(int id)\n    {\n         \n        // Child class is able to access the inherited\n        // protected data members of base class\n         \n        id_protected = id;\n         \n    }\n     \n    void displayId()\n    {\n        cout << \"id_protected is: \" << id_protected << endl;\n    }\n};\n \n// main function\nint main() {\n     \n    Child obj1;\n     \n    // member function of the derived class can\n    // access the protected data members of the base class\n     \n    obj1.setId(81);\n    obj1.displayId();\n    return 0;\n}"
+          }]
+        }, 
+        {
+          "subtitle":"Metodos",
+          "body": "Son aquellas funciones que permite efectuar el objeto y que nos rinden algún tipo de servicio durante el transcurso del programa. Determinan a su vez como va a responder el objeto cuando recibe un mensaje.",
+          "images": []
+        }, 
+        {
+          "subtitle":"Objeto",
+          "body": "Los objetos\nEn la POO, un objeto es una entidad virtual (o entidad de software), con datos y funciones que simulan las propiedades del objeto. Los objetos con los que se construyen\nlos programas se ven como si fueran máquinas, las cuales están formadas por un\nconjunto de elementos autónomos. Las propiedades individuales de estos elementos\ny las relaciones entre sí definen el funcionamiento general de la máquina.\nDesde el punto de vista del mundo real, un objeto tiene dos propiedades esenciales:\nun estado y un comportamiento:\n\n• El estado. Son los datos asociados con el objeto, los cuales indican su situación interna en un momento dado, por ejemplo:velocidad, calificación, color, capacidad, encendido/apagado, saldo, etc.\n\n• El comportamiento. Es la manera en la que el objeto responde a estímulos del exterior, por ejemplo, lo que sucede cuando se oprime el botón “inicio”,lo que sucede cuando se hace un retiro de una cuenta bancaria o cuando se\noprime el botón “reiniciar” en un contador.",
+          "images": []
+        }, 
+        {
+          "subtitle":"Instancia",
+          "body":"Se llama instancia a todo objeto que derive de algún otro. De esta forma, todos los objetos son instancias de algún otro, menos la clase Object que es la madre de todas. En pocas palabras, cuando creamos una variable de tipo objeto, estamos instanciando el objeto a la variable",
+          "images": [],
+          "code":[{
+            "title":"Ejemplo de instancia",
+            "code":"class POO\n{\n  // ...\n};\n\nint main()\n{\n  POO a; // a se crea en el stack\n  POO* b = new POO; // b se crea en el heap.\n\n  delete b; // La memoria dinámica es necesario liberarla.\n}"
+          }]
+        }
+      ]
+    }
+  ]

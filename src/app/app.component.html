@@ -1,16 +1,81 @@
-<div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-  <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-  <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-  <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-</div>
+<div class="container-fluid">
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="toggleMenu()">Apuntadores</button>
-  <button mat-menu-item (click)="toggleMenu()">Arboles de Grafos</button>
-  
-  <button mat-menu-item (click)="toggleMenu()">Busqueda</button>
-  <button mat-menu-item (click)="toggleMenu()">Listas</button>
-  <button mat-menu-item (click)="toggleMenu()">Ordenamiento</button>
-  <button mat-menu-item (click)="toggleMenu()">POO</button>
-  <button mat-menu-item (click)="toggleMenu()">Tipos de Datos</button>
-</mat-menu>
+  <div class="menu-container">
+    <div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+    </div>
+
+    <span class="title">Estructuras de Datos</span>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toggleMenu(); basicos()">Basicos</button>
+      <button mat-menu-item (click)="toggleMenu(); avanzados()">Avanzados</button>
+      <button mat-menu-item (click)="toggleMenu(); apuntadores()">Apuntadores</button>
+      <button mat-menu-item (click)="toggleMenu(); arbolesGrafos()">Arboles y Grafos</button>
+      <button mat-menu-item (click)="toggleMenu(); busqueda()">Busqueda</button>
+      <button mat-menu-item (click)="toggleMenu(); listas()">Listas</button>
+      <button mat-menu-item (click)="toggleMenu(); ordenamiento()">Ordenamiento</button>
+      <button mat-menu-item (click)="toggleMenu(); poo()">POO</button>
+    </mat-menu>
+  </div>
+
+  <div class="data-container">
+    <div class="row mt-3">
+      <div class="col">
+        <div *ngIf="answer!=null">
+          <div *ngFor="let ans of answer; index as i; first as isFirst">
+
+            <div *ngIf="ans.title != ''">
+            <span>
+              <h1 class="text-center">{{ans.title}}</h1>
+            </span>
+            </div>
+
+
+            <div *ngIf="ans.data != null">
+              <hr>
+              <div *ngFor="let data of ans.data">
+                <span class="h4">{{data.subtitle}}</span>
+                <pre style="white-space: pre-wrap;">{{data.body}}</pre>
+
+                <div *ngIf="data.images != null">
+                  <div *ngFor="let url of data.images">
+                    <div class="text-center">
+                      <img mat-card-image src="{{url}}" class="w-50">
+                    </div>
+                  </div>
+                  <br>
+                </div>
+
+                <div *ngIf="data.code != null">
+                  <div *ngFor="let code of data.code">
+
+                    <div class="border bg-dark text-white p-4 w-lg-50">
+                      <p class="h-3 text-warning">{{code.title}}</p>
+                      <span class="">
+                      <pre class="text-left" style="white-space: pre-wrap;">{{code.code}}</pre>
+
+                    </span>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div *ngIf="ans.sources != ''">
+              <hr>
+              <h3 class="text-center">Fuentes</h3>
+              <pre>{{ans.sources}}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

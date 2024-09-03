@@ -1,0 +1,186 @@
+[
+    {
+      "title": "Lista simple",
+      "sources": "https://www.infor.uva.es/~belar/Ampliacion/TDAS/T6_TDA_Lista.pdf",
+      "inPutData": {
+        "images":[
+        ]
+      },
+      "outPutData": {
+        "images":[
+        ]
+      },
+      "data":[
+        {
+          "subtitle":"",
+          "body": "Una lista sencilla es aquella en la que sus nodos se encuentran enlazados únicamente por una liga, es decir, tiene un nodo apuntando al siguiente y así sucesivamente",
+          "images": []
+        },
+        {
+            "subtitle":"",
+            "body":"Una lista simple puede ser implementada como lineal o circular. En una lista lineal el ultimo nodo apunta a un valor nulo, mientras en una lista circular el ultimo nodo de la lista apunta al primer nodo de la lista",
+            "images": []
+
+        },
+        {
+            "subtitle":"",
+            "body":"Dentro de la clase lista simple podemos encontrar métodos estándar como lo son" ,
+            "images": []
+
+        },
+        {
+            "subtitle":"Insertar",
+            "body":"Este método recibe un valor y lo coloca en la última posición de la lista, es decir, crea un nuevo nodo\n\t - Parametros de entrada\n\tstring data(Este valor es el que guardaremos en nuestro nodo)\n\t - Valor de retorno\n\t Este metodo no cuenta con valores a retornar, por lo que utilizamos void como retorno",
+            "images": []
+
+        },
+        {
+            "subtitle":"Eliminar",
+            "body":"El método eliminar recibe la posición del nodo que se desea eliminar, al eliminarse, el nodo anterior pasara a apuntar al que el nodo eliminado apuntaba\n\t - Parametros de entrada\n\tint position(Solicitamos la posición del elemento deseado a eliminar)\n\t - Valor de retorno \n\t Este metodo no cuenta con valores a retornar, por lo que utilizamos void como retorno",
+            "images": []
+
+        },
+        {
+            "subtitle":"Buscar",
+            "body":"El método buscar recibe un elemento X y busca la posición o posiciones donde se encuentra el elemento\n\t - Parametros de entrada\n\tstring value (este es el valor que vamos a buscar en nuestra lista)\n\t - Valores de retorno\n\t Nodo (este metodo nos va a retornar el Nodo que cuente con el valor de nuestro parametro de entrada)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Vacía",
+            "body":"Verifica si la lista se encuentra vacía, devuelve un valor booleano\n\t - Paramentros de entrada\n\t Este metodo no cuentas con valores de entrada \n\t - Valores de retorno \n\t bool(Este metodo nos va a retornar un valor Verdadero o un valor Falso)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Inicializa",
+            "body":"Este método nos servirá para reservar el espacio en memoria \n\t Este metodo no cuenta con valores de entrada, solo reserva el espacio en memoria de nuestro nodo head",
+            "images": []
+
+        },
+        {
+            "subtitle":"Primero",
+            "body":"Este método que nos devolverá el primer elemento de la misma \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara siempre el primer elemento de la lista)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Ultimo",
+            "body":"Método que nos retorna el ultimo elemento de la lista \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara siempre el ultimo elemento de la lista)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Siguiente",
+            "body":"De una posición dada nos retorna el siguiente valor en la posición \n\t - Paramentros de entrada\n\t int position (Esta sera la posición +1 a la queremos obtener) \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara el siguiente elemento dado a la posición ingresada como parametro)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Anterior",
+            "body":"Dada una posición nos retorna el valor anterior en la lista \n\t - Paramentros de entrada\n\t int position (Esta sera la posición -1 a la queremos obtener) \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara el anterior elemento dado a la posición ingresada como parametro)",
+            "images": []
+
+        },
+        {
+            "subtitle":"Tamaño",
+            "body":"Retorna el tamaño actual de la lista  \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t int (Este metodo nos devuelve en valores enteros el tamaño actual de nuestra lista) ",
+            "images": []
+
+        },
+        {
+            "subtitle":"Eliminar todo (vaciar)",
+            "body":"elimina todos los elementos \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Este metodo no cuenta con valores de retorno",
+            "images": []
+
+        },
+        {
+            "subtitle":"Mostrar lista",
+            "body":"Imprime la lista en pantalla  \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Este metodo no cuenta con valores de retorno",
+            "images": [],
+            "code": [{
+              "title":"Lista simple .h",
+              "code": "#include <iostream>\n\n#include <fstream>\n#include <iostream>\n#include <string>\n#include <stdlib.h>\n \nusing namespace std;\n\n#include \"Nodo.h\"\n\nclass ListaSimple{\n    private:\n        Nodo *head;\n        int size;\npublic:\n    ListaSimple();\n    ~ListaSimple();\n \n    void insertPrimero(string);\n    void insertar(string data);\n    void insertAnterior(string, int);\n    void insertSiguiente(string, int);\n\n    bool isVacia();\n    int listSize();\n\n    void eliminarPrimero();\n    void eliminartUltimo();\n    void eliminarAnterior(int);\n    void eliminarSiguiente(int);\n\n    Nodo * buscar(string);\n\n    void vaciar();\n    void mostrarLista();\n\n    void inicializa();\n\n    void eliminarPosicion(int position);\n};"
+            },{
+              "title":"Lista simple .cpp",
+              "code": "#include \"ListaSimple.h\"\n\nListaSimple::ListaSimple() {\n    head = nullptr;\n    size = -1;\n}\n\nvoid ListaSimple::inicializa() {\n    head = nullptr;\n    size = -1;\n}\n\nListaSimple::~ListaSimple() {}\n\nvoid ListaSimple::insertPrimero(string data) {\n    Nodo *nodo = new Nodo();\n    nodo->next = head;\n    nodo->data = data;\n    head = nodo;\n    size++;\n}\n\nvoid ListaSimple::insertar(string data) {\n    Nodo *nodo = new Nodo();\n    nodo->data = data;\n    nodo->next = nullptr;\n    if (head == nullptr) {\n        insertPrimero(data);\n    } else {\n        Nodo *puntero = head;\n        while (puntero->next != nullptr) {\n            puntero = puntero->next;\n        }\n        puntero->next = nodo;\n        size++;\n    }\n}\n\nvoid ListaSimple::insertAnterior(string data, int position) {\n    Nodo *nodo = new Nodo();\n    nodo->data = data;\n    if (head == nullptr || position == 0) {\n        insertPrimero(data);\n    } else {\n        Nodo *puntero = head;\n        int cont = 0;\n        while (cont < position - 1 && puntero->next != nullptr) {\n            puntero = puntero->next;\n            cont++;\n        }\n        nodo->next = puntero->next;\n        puntero->next = nodo;\n        size++;\n    }\n}\n\nvoid ListaSimple::insertSiguiente(string data, int position) {\n    Nodo *nodo = new Nodo();\n    nodo->data = data;\n    if (head == nullptr) {\n        insertPrimero(data);\n    } else {\n        Nodo *puntero = head;\n        int cont = 0;\n        while (cont < position && puntero->next != nullptr) {\n            puntero = puntero->next;\n            cont++;\n        }\n        nodo->next = puntero->next;\n        puntero->next = nodo;\n        size++;\n    }\n}\n\nvoid ListaSimple::mostrarLista() {\n    Nodo *p = head;\n    int cont = 0;\n    if (isVacia() == 0) {\n        while (p != nullptr) {\n\n            cout << cont << \" : \"<< p << \" -> \" << p->data << endl;\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n}\n\nbool ListaSimple::isVacia() {\n    return head == nullptr;\n}\n\nint ListaSimple::listSize() {\n    if (size != -1) {\n        int cont = 1;\n        Nodo *puntero = head;\n        while (puntero->next != nullptr) {\n            puntero = puntero->next;\n            cont++;\n        }\n        return cont;\n    } else {\n        return size;\n    }\n}\n\n\nvoid ListaSimple::eliminartUltimo() {\n    Nodo *p, *q = new Nodo();\n    if (isVacia()) {\n        cout << \"Lista vacia\";\n    } else {\n        p = head;\n        while (p->next != nullptr) {\n            q = p;\n            p = p->next;\n        }\n        if (p != head) {\n            q->next = nullptr;\n        } else {\n            head = nullptr;\n        }\n        delete p;\n    }\n}\n\nvoid ListaSimple::eliminarAnterior(int position) {\n    eliminarPosicion(position - 1);\n}\n\nvoid ListaSimple::eliminarPosicion(int position) {\n    Nodo *p, *q = new Nodo();\n    int c;\n    if (isVacia()) {\n        eliminarPrimero();\n    } else {\n        p = head;\n        c = 1;\n        while ((c != position) && (p->next != head)) {\n            q = p;\n            p = p->next;\n            c++;\n        }\n        if (c == position) {\n            if (p == head) {\n                if (p->next != head) {\n                    head = head->next;\n                    q = head;\n                    while (q->next != p) {\n                        q = q->next;\n                    }\n                    q->next = head;\n                } else {\n                    head = nullptr;\n                }\n            } else {\n                q->next = p->next;\n                delete p;\n            }\n        }\n    }\n    size--;\n}\n\nvoid ListaSimple::eliminarSiguiente(int position) {\n    eliminarPosicion(position + 1);\n}\n\nvoid ListaSimple::eliminarPrimero() {\n    Nodo *p = new Nodo;\n    if(!isVacia()) {\n        p = head;\n        head = head->next;\n        delete p;\n        size--;\n    }\n}\n\nvoid ListaSimple::vaciar() {\n    Nodo *p;\n    if (head != nullptr) {\n        p = head;\n        while (p != nullptr) {\n            head = head->next;\n            delete p;\n            p = head;\n        }\n        size = -1;\n    } else {\n        cout << \"Lista vacia.\";\n    }\n}\n\nNodo *ListaSimple::buscar(string value) {\n    Nodo *p;\n    if (head != nullptr) {\n        p = head;\n        while (p != nullptr) {\n            if (p->data == value) {\n                return p;\n            }\n            head = head->next;\n            p = head;\n        }\n    }\n}\n"
+            }
+          ]
+
+        }
+      ]
+    },
+    {
+      "title": "TDA Lista doblemente ligada",
+      "sources": "https://ccia.ugr.es/~jfv/ed1/tedi/cdrom/docs/ldoble.html",
+      "inPutData": {
+        "images":[
+        ]
+      },
+      "outPutData": {
+        "images":[
+        ]
+      },
+      "data":[
+        {
+          "subtitle":"",
+          "body": "La lista doblemente ligada contiene por lo menos 3 campos: Uno para almacenar la información y otros dos para guardar dirección de memoria del modo antecesor y sucesor.\n          Desde luego que en el primer elemento el nodo antecesor debe de apuntar a un valor nulo en caso de ser una lista lineal.\n          Al igual que en la lista simple podemos encontrar los siguientes métodos:\n          Insertar: recibe un elemento y lo coloca en la ultima posición.\n          Eliminar: recibe la posicion de un elemento, ademas, los nodos del elemento anterior y del sucesor, deben cambiar.\n          Buscar:Recibe un valor y lo busca en los elementos de la lista. En caso de no encontrarlo responde un null\n",
+          "images": []
+        },
+        {
+          "subtitle":"Vacia:",
+          "body": "Verifica si la lista cuenta con elementos. Retorna un valor booleano.\n\t - Paramentros de entrada\n\t Este metodo no cuentas con valores de entrada \n\t - Valores de retorno \n\t bool(Este metodo nos va a retornar un valor Verdadero o un valor Falso)",
+          "images": []
+        },
+        {
+            "subtitle":"Inicializa:",
+            "body":"Este método nos servirá para reservar el espacio en memoria \n\t Este metodo no cuenta con valores de entrada, solo reserva el espacio en memoria de nuestro nodo head",
+            "images":[]
+        },{
+            "subtitle":"Primero:",
+            "body":"Este método que nos devolverá el primer elemento de la misma \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara siempre el primer elemento de la lista)",
+
+            "images":[]
+        },{
+            "subtitle":"Ultimo:",
+            "body":"Método que nos retorna el ultimo elemento de la lista \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara siempre el ultimo elemento de la lista)",
+            "images":[]
+        },
+        {
+            "subtitle":"Siguiente:",
+            "body":"Dada una posicion, retorna el valor del siguiente elemento. \n\t - Paramentros de entrada\n\t int position (Esta sera la posición +1 a la queremos obtener) \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara el siguiente elemento dado a la posición ingresada como parametro)",
+
+            "images":[]
+        },
+        {
+            "subtitle":"Anterior:",
+            "body":"Dada una posicion retorna el valor anterior \n\t - Paramentros de entrada\n\t int position (Esta sera la posición -1 a la queremos obtener) \n\t - Valores de retorno \n\t Nodo (Este metodo nos retornara el anterior elemento dado a la posición ingresada como parametro)",
+
+            "images":[]
+        },{
+            "subtitle":"Tamaño:",
+            "body":"Retorna la cantidad de elementos de una lista.  \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t int (Este metodo nos devuelve en valores enteros el tamaño actual de nuestra lista) ",
+
+            "images":[]
+        },{
+            "subtitle":"Vaciar(eliminar todo):",
+            "body":"Borra todos los elementos de la lista. \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Este metodo no cuenta con valores de retorno",
+
+            "images": []
+        },{
+            "subtitle":"Mostrar listas:",
+            "body":"Imprime en pantalla los elementos de una lista  \n\t - Paramentros de entrada\n\t Este metodo no cuenta con valores de entrada \n\t - Valores de retorno \n\t Este metodo no cuenta con valores de retorno",
+
+            "images":[],
+            "code": [
+              {
+              "title":"Lista doblemente ligada .h",
+              "code": "//\n// Created by josue on 3/15/2022.\n//\n\n#ifndef PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_LISTADOBLE_H\n#define PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_LISTADOBLE_H\n\n\n#include \"Nodo.h\"\n#include \"Utilitites.h\"\n\nclass ListaDoble : Utilitites {\nprivate:\n    Nodo *head;\npublic:\n    Nodo *getHead() const;\n\n    void setHead(Nodo *head);\n\n    ListaDoble();\n\n    void insertar(Animal*);\n    void insertarPrimero(Animal*);\n    void insertarPosition(Animal*, int position);\n    void insertarAnterior(Animal* , int position);\n    void insertarSiguiente(Animal *, int position);\n\n    void eliminar();\n    void eliminarPrimero();\n    void eliminarPosicion(int position);\n    void eliminarAnterior(int position);\n    void eliminarSiguiente(int position);\n\n    void buscarPorNombre(string);\n    void buscarPorRaza(string);\n    void buscarPorID(int);\n\n    ListaDoble * inicializa();\n\n    bool isVacia();\n    int tamano();\n    void vaciar();\n    void mostrarLista();\n\n};\n\n\n#endif //PROG02_AGUILAR_ISLAS_JOSUE_NORBERTO_LISTADOBLE_H\n"
+            },{
+              "title":"Lista doblemente ligada .cpp",
+              "code": "//\n// Created by josue on 3/15/2022.\n//\n\n#include \"ListaDoble.h\"\n\nListaDoble::ListaDoble() {\n    head = nullptr;\n}\n\nvoid ListaDoble::insertar(Animal *animal) {\n    Nodo *p, *q;\n    p = new Nodo();\n    p->data = animal;\n    p->next = nullptr;\n    if (head != nullptr) {\n        q = head;\n        while (q->next != nullptr) {\n            q = q->next;\n        }\n        q->next = p;\n        p->prev = q;\n    } else {\n        head = p;\n        p->prev = nullptr;\n        p->next = nullptr;\n    }\n}\n\nvoid ListaDoble::insertarPrimero(Animal *animal) {\n    Nodo *p = new Nodo();\n    p->data = animal;\n    p->prev = nullptr;\n    p->next = head;\n    if (head != nullptr) {\n        head->prev = p;\n    }\n    head = p;\n}\n\nvoid ListaDoble::insertarPosition(Animal *animal, int position) {\n    Nodo *p, *q = new Nodo();\n    int c;\n    if (isVacia()) {\n        insertar(animal);\n    } else {\n        p = head;\n        c = 0;\n        while (p != nullptr) {\n            p = p->next;\n            c++;\n        }\n        if ((position > 0) && (position <= c + 1)) {\n            p = new Nodo();\n            p->data = animal;\n            if (position == 1) {\n                p->next = head;\n                p->prev = nullptr;\n                p->next->prev = p;\n                head = p;\n            } else {\n                q = head;\n                for (int i = 2; i < position - 1; i++) {\n                    q = q->next;\n                }\n                p->next = q->next;\n                p->prev = q->next;\n                q->next = p;\n                if (p->next != nullptr) {\n                    p->next->prev = p;\n                }\n            }\n        }\n    }\n}\n\nvoid ListaDoble::insertarAnterior(Animal *animal, int position) {\n    insertarPosition(animal, position - 1);\n}\n\nvoid ListaDoble::insertarSiguiente(Animal *animal, int position) {\n\n    insertarPosition(animal, position + 1);\n}\n\nvoid ListaDoble::eliminar() {\n    Nodo *p = new Nodo();\n    if(!isVacia()){\n        p = head;\n        while (p->next != nullptr){\n            p = p->next;\n        }\n        if(p==head){\n            head = nullptr;\n        }else{\n            p->prev->next = nullptr;\n        }\n        delete p;\n    }\n}\n\nvoid ListaDoble::eliminarPrimero() {\n    Nodo *p = new Nodo();\n    if(!isVacia()){\n        p = head;\n        head = head->next;\n        if(head != nullptr){\n            head->prev = nullptr;\n        }\n        delete p;\n    }\n}\n\nvoid ListaDoble::eliminarPosicion(int position) {\n    Nodo *p = new Nodo();\n    int c;\n    if(!isVacia()){\n        p = head;\n        c = 1;\n        while((c!=position) && (p!= nullptr)){\n            p=p->next;\n            c++;\n        }\n        if(c==position){\n            if(p==head){\n                head = head->next;\n                if(head!= nullptr)\n                    head->prev = nullptr;\n            }else{\n                p->prev->next = p->next;\n                if(p->next!= nullptr)\n                    p->next->prev = p->prev;\n            }\n            delete p;\n        }\n    }\n}\n\nvoid ListaDoble::eliminarAnterior(int position) {\n    eliminarPosicion(position-1);\n}\n\nvoid ListaDoble::eliminarSiguiente(int position) {\n    eliminarPosicion(position+1);\n\n}\n\nvoid ListaDoble::buscarPorNombre(string str) {\n    Nodo *p = head;\n    int cont = 0;\n    if (!isVacia()) {\n        while (p != nullptr) {\n            if (p->data->getRaza() == str) {\n                cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n            }\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n}\n\n\nvoid ListaDoble::buscarPorRaza(string str) {\n    Nodo *p = head;\n    int cont = 0;\n    if (!isVacia()) {\n        while (p != nullptr) {\n            if (p->data->getRaza() == str) {\n                cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n            }\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n}\n\n\n\nvoid ListaDoble::buscarPorID(int id) {\n    Nodo *p = head;\n    int cont = 0;\n    if (!isVacia()) {\n        while (p != nullptr) {\n            if (p->data->getId() == id) {\n                cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n            }\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n}\n\nListaDoble *ListaDoble::inicializa() {\n    return new ListaDoble();\n}\n\n\nint ListaDoble::tamano() {\n    Nodo *p = head;\n    int cont = 0;\n    if (!isVacia()) {\n        while (p != nullptr) {\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n    return cont;\n}\n\nvoid ListaDoble::vaciar() {\n    Nodo *p = new Nodo();\n    if(!isVacia()){\n        p = head;\n        while(p!= nullptr){\n            head = head->next;\n            delete p;\n            p = head;\n        }\n    }\n}\n\nvoid ListaDoble::mostrarLista() {\n    Nodo *p = head;\n    int cont = 0;\n    if (!isVacia()) {\n        while (p != nullptr) {\n            cout << cont << \" : \" << p << \" -> \" << p->data->toString() << endl;\n            p = p->next;\n            cont++;\n        }\n    } else {\n        cout << \"Lista vacia\" << endl;\n    }\n}\n\nbool ListaDoble::isVacia() {\n    return head == nullptr;\n}\n\nNodo *ListaDoble::getHead() const {\n    return head;\n}\n\nvoid ListaDoble::setHead(Nodo *head) {\n    ListaDoble::head = head;\n}\n"
+            }]
+        }
+      ]
+    }
+  ]
