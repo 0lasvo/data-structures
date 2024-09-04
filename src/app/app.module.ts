@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { IndexComponent } from './Components/index/index.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule} from "@angular/forms";
@@ -19,6 +20,7 @@ import {MatCardImage} from "@angular/material/card";
 @NgModule({
   declarations: [
     AppComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,67 +36,23 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public basicos() {
-    this.service.getTiposDeDatos().subscribe(data => {
+  loadJsonData(fileName: string) {
+    this.service.getJsonByName(fileName).subscribe(data => {
       this.answer = data;
+      this.scrollToSection(data[0]?.title);
       console.log(this.answer);
     });
   }
 
-  public busqueda() {
-    this.service.getBusqueda().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
+  onJsonOption(fileName: string) {
+    this.loadJsonData(fileName);
   }
 
-  public poo() {
-    this.service.getPOO().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public ordenamiento() {
-    this.service.getOrdenamiento().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public apuntadores() {
-    this.service.getApuntadores().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public avanzados() {
-    this.service.getAvanzado().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public listas() {
-    this.service.getListas().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public arbolesGrafos() {
-    this.service.getArbolesGrafos().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
-  }
-
-  public order() {
-    this.service.getOrder().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer);
-    });
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
 }

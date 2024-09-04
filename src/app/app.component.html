@@ -1,82 +1,88 @@
-<div>
-
-  <div class="menu-container">
-    <div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-      <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
-    </div>
-
-    <span class="title">Estructuras de Datos</span>
-
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="toggleMenu(); basicos()">Basicos</button>
-      <button mat-menu-item (click)="toggleMenu(); avanzados()">Avanzados</button>
-      <button mat-menu-item (click)="toggleMenu(); apuntadores()">Apuntadores</button>
-      <button mat-menu-item (click)="toggleMenu(); arbolesGrafos()">Arboles y Grafos</button>
-      <button mat-menu-item (click)="toggleMenu(); busqueda()">Busqueda</button>
-      <button mat-menu-item (click)="toggleMenu(); listas()">Listas</button>
-      <button mat-menu-item (click)="toggleMenu(); ordenamiento()">Ordenamiento</button>
-      <button mat-menu-item (click)="toggleMenu(); poo()">POO</button>
-      <button mat-menu-item (click)="toggleMenu(); order()">Order</button>
-    </mat-menu>
+<div class="main-container">
+  <div class="sidebar">
+    <app-index></app-index>
   </div>
 
-  <div class="data-container">
-    <div class="align-content-center">
-      <div class="col">
-        <div *ngIf="answer!=null">
-          <div *ngFor="let ans of answer; index as i; first as isFirst">
+  <div class="content-container">
+    <div class="menu-container">
+      <div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+      </div>
 
-            <div *ngIf="ans.title != ''">
-            <span>
-              <h1 class="text-center">{{ans.title}}</h1>
-            </span>
-            </div>
+      <span class="title">Estructuras de Datos</span>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('TiposDeDatos')">Basicos</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Avanzado')">Avanzados</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Apuntadores')">Apuntadores</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('ArbolesGrafos')">Arboles y Grafos</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Busqueda')">Busqueda</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Listas')">Listas</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Ordenamiento')">Ordenamiento</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('POO')">POO</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('Order')">Order</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('BubbleSort')">Bubble Sort</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('InsertionSort')">Insertion Sort</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('MergeSort')">Merge Sort</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('QuickSort')">Quick Sort</button>
+        <button mat-menu-item (click)="toggleMenu(); onJsonOption('SelectionSort')">Selection Sort</button>
+      </mat-menu>
+
+      <mat-menu #menu="matMenu">
 
 
-            <div *ngIf="ans.data != null">
-              <hr>
-              <div *ngFor="let data of ans.data">
-                <span class="h4">{{data.subtitle}}</span>
-                <pre style="white-space: pre-wrap;">{{data.body}}</pre>
+      </mat-menu>
+    </div>
 
-                <div *ngIf="data.images != null">
-                  <div *ngFor="let url of data.images">
-                    <div class="text-center">
-                      <img mat-card-image src="{{url}}" class="w-50" alt="img">
-                    </div>
-                  </div>
-                  <br>
-                </div>
+    <div class="data-container">
+      <div class="align-content-center">
+        <div class="col">
+          <div *ngIf="answer!=null">
+            <div *ngFor="let ans of answer; index as i; first as isFirst">
 
-                <div *ngIf="data.code != null">
-                  <div *ngFor="let code of data.code">
+              <div *ngIf="ans.title != ''">
+                <h1 class="text-center">{{ans.title}}</h1>
+              </div>
 
-                    <div class="border bg-dark text-white p-4 w-lg-50">
-                      <p class="h-3 text-warning">{{code.title}}</p>
-                      <span class="">
-                      <pre class="text-left" style="white-space: pre-wrap;">{{code.code}}</pre>
+              <div *ngIf="ans.data != null">
+                <hr>
+                <div *ngFor="let data of ans.data">
+                  <h4>{{data.subtitle}}</h4>
+                  <pre style="white-space: pre-wrap;">{{data.body}}</pre>
 
-                    </span>
+                  <div *ngIf="data.images != null">
+                    <div *ngFor="let url of data.images">
+                      <div class="text-center">
+                        <img mat-card-image src="{{url}}" class="w-50" alt="img">
+                      </div>
                     </div>
                     <br>
                   </div>
+
+                  <div *ngIf="data.code != null">
+                    <div *ngFor="let code of data.code">
+                      <div class="border bg-dark text-white p-4 w-lg-50">
+                        <p class="h-3 text-warning">{{code.title}}</p>
+                        <pre class="text-left" style="white-space: pre-wrap;">{{code.code}}</pre>
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+
                 </div>
-
               </div>
-            </div>
 
-
-            <div *ngIf="ans.sources != ''">
-              <hr>
-              <h3 class="text-center">Fuentes</h3>
-              <pre>{{ans.sources}}</pre>
+              <div *ngIf="ans.sources != ''">
+                <hr>
+                <h3 class="text-center">Fuentes</h3>
+                <pre>{{ans.sources}}</pre>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
