@@ -16,11 +16,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {CdkOverlayOrigin} from "@angular/cdk/overlay";
 import {MatCardImage} from "@angular/material/card";
+import { AboutComponent } from './Components/about/about.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import {MatCardImage} from "@angular/material/card";
     MatMenuTrigger,
     CdkOverlayOrigin,
     MatMenuItem,
-    MatCardImage
+    MatCardImage,
+    NgOptimizedImage
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

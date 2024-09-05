@@ -13,11 +13,13 @@ export class AppComponent implements OnInit {
   public answer: JSONRecord[] = [];
   title = 'data-structures';
   isMenuOpen = false;
+  //isFooterVisible = false;
 
   constructor(private service: DataService) { }
 
   ngOnInit(): void {
     this.service.getJSON().subscribe(data => this.answer = data);
+    this.loadJsonData('Home');
   }
 
   @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
@@ -36,7 +38,17 @@ export class AppComponent implements OnInit {
     }
   }
 
-  loadJsonData(fileName: string) {
+  /*@HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const windowHeight = window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.scrollY + windowHeight;
+
+    this.isFooterVisible = scrollPosition >= pageHeight;
+  }*/
+
+
+loadJsonData(fileName: string) {
     this.service.getJsonByName(fileName).subscribe(data => {
       this.answer = data;
       this.scrollToSection(data[0]?.title);

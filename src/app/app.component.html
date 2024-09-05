@@ -11,7 +11,11 @@
         <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
       </div>
 
-      <span class="title">Estructuras de Datos</span>
+      <div class="title">Estructuras de Datos
+        <div (click)="onJsonOption('Home')">
+          <img class="home-icon" ngSrc="./assets/images/house-solid.svg" alt="home" height="16" width="16">
+        </div>
+      </div>
 
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="toggleMenu(); onJsonOption('TiposDeDatos')">Basicos</button>
@@ -85,4 +89,12 @@
       </div>
     </div>
   </div>
+
+  <!--*ngIf="isFooterVisible"-->
+
+  <footer class="footer">
+    <app-about></app-about>
+  </footer>
+
+
 </div>

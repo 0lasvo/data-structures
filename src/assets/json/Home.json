@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Estructuras de datos",
+    "code": null,
+    "sources": "",
+    "inPutData": {
+      "images":[
+      ]
+    },
+    "outPutData": {
+      "images":[
+      ]
+    },
+    "data":[
+      {
+        "subtitle":"",
+        "body": "",
+        "images": [
+          "./assets/images/home.jpg"
+        ]
+      }
+    ]
+  }
+]
