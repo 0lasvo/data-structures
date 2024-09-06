@@ -1,0 +1,32 @@
+/*
+Elementos para usar en caso de que sea necesario
+
+if (this.answer.length > 0) {
+          this.scrollToSection(this.answer[0]?.title);
+        }
+
+scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    console.log(element);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+
+@ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen ? this.menuTrigger.openMenu() : this.menuTrigger.closeMenu();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedInside = (event.target as HTMLElement).closest('.menu-icon') ||
+      (event.target as HTMLElement).closest('.mat-menu-panel');
+    if (!clickedInside && this.isMenuOpen) {
+      this.toggleMenu();
+    }
+  }
+*/

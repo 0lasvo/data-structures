@@ -1,5 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from "@angular/material/menu";
+import { Component, OnInit } from '@angular/core';
 import { JSONRecord } from "./Components/JSONRecord";
 import { DataService } from "./Components/data.service";
 
@@ -10,61 +9,27 @@ import { DataService } from "./Components/data.service";
 })
 export class AppComponent implements OnInit {
 
-  public answer: JSONRecord[] = [];
-  title = 'data-structures';
-  isMenuOpen = false;
-  //isFooterVisible = false;
-
   constructor(private service: DataService) { }
+  public answer: JSONRecord[] = [];
+
+  title = 'data-structures';
+  isSidebarOpen = true;
 
   ngOnInit(): void {
-    this.service.getJSON().subscribe(data => this.answer = data);
-    this.loadJsonData('Home');
+    this.onSelectOption('Home');
+    this.service.jsonData$.subscribe(
+      (data: JSONRecord[]) => {
+        this.answer = data;
+      }
+    );
   }
 
-  @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-    this.isMenuOpen ? this.menuTrigger.openMenu() : this.menuTrigger.closeMenu();
+  onSelectOption(fileName: string) {
+    this.service.loadJsonByName(fileName);
   }
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const clickedInside = (event.target as HTMLElement).closest('.menu-icon') ||
-      (event.target as HTMLElement).closest('.mat-menu-panel');
-    if (!clickedInside && this.isMenuOpen) {
-      this.toggleMenu();
-    }
-  }
-
-  /*@HostListener('window:scroll', [])
-  onWindowScroll(): void {
-    const windowHeight = window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
-    const scrollPosition = window.scrollY + windowHeight;
-
-    this.isFooterVisible = scrollPosition >= pageHeight;
-  }*/
-
-
-loadJsonData(fileName: string) {
-    this.service.getJsonByName(fileName).subscribe(data => {
-      this.answer = data;
-      this.scrollToSection(data[0]?.title);
-      console.log(this.answer);
-    });
-  }
-
-  onJsonOption(fileName: string) {
-    this.loadJsonData(fileName);
-  }
-
-  scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
 }

@@ -1,1 +1,36 @@
-<div>Index Works!</div>
+<div class="container">
+  <ul>
+    <li (click)="onSelectOption('TiposDeDatos')">Basicos</li>
+    <li (click)="onSelectOption('Avanzado')">Avanzados</li>
+    <li (click)="onSelectOption('Apuntadores')">Apuntadores</li>
+    <li (click)="onSelectOption('ArbolesGrafos')">Arboles y Grafos</li>
+    <li (click)="onSelectOption('Busqueda')">Busqueda</li>
+    <li (click)="onSelectOption('Listas')">Listas</li>
+    <li (click)="onSelectOption('Ordenamiento')">Ordenamiento</li>
+    <li (click)="onSelectOption('POO')">POO</li>
+    <li (click)="onSelectOption('Order')">Order</li>
+    <li (click)="onSelectOption('BubbleSort')">Bubble Sort</li>
+    <li (click)="onSelectOption('InsertionSort')">Insertion Sort</li>
+    <li (click)="onSelectOption('MergeSort')">Merge Sort</li>
+    <li (click)="onSelectOption('QuickSort')">Quick Sort</li>
+    <li (click)="onSelectOption('SelectionSort')">Selection Sort</li>
+  </ul>
+</div>
+
+
+
+<!--<div *ngIf="tocData">
+  <ul>
+    <li *ngFor="let section of tocData.sections">
+      <div (click)="toggleSection(section)">
+        {{ section.title }}
+      </div>
+
+      <ul *ngIf="section.open">
+        <li *ngFor="let subsection of section.sections">
+          {{ subsection.title }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>-->
