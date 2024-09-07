@@ -30,3 +30,179 @@ scrollToSection(sectionId: string) {
     }
   }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="main-container">
+
+  <div [class]="isSidebarOpen ? 'index open' : 'index'">
+    <div class="menu-icon" (click)="toggleSidebar()">
+      <div [class]="isSidebarOpen ? 'bar change' : 'bar'"></div>
+      <div [class]="isSidebarOpen ? 'bar change' : 'bar'"></div>
+      <div [class]="isSidebarOpen ? 'bar change' : 'bar'"></div>
+    </div>
+    <app-index></app-index>
+  </div>
+
+  <div class="content-container">
+
+    <div class="menu-container">
+      <div class="menu-icon" [matMenuTriggerFor]="menu" (click)="toggleMenu()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+        <div [class]="isMenuOpen ? 'bar change' : 'bar'"></div>
+      </div>
+
+<div class="title">Estructuras de Datos
+  <div (click)="loadJsonData('ArbolesGrafos')">
+    <img class="home-icon" ngSrc="./assets/images/house-solid.svg" alt="home" height="16" width="16">
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('TiposDeDatos')">Basicos</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Avanzado')">Avanzados</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Apuntadores')">Apuntadores</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('ArbolesGrafos')">Arboles y Grafos</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Busqueda')">Busqueda</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Listas')">Listas</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Ordenamiento')">Ordenamiento</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('POO')">POO</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('Order')">Order</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('BubbleSort')">Bubble Sort</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('InsertionSort')">Insertion Sort</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('MergeSort')">Merge Sort</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('QuickSort')">Quick Sort</button>
+  <button mat-menu-item (click)="toggleMenu(); loadJsonData('SelectionSort')">Selection Sort</button>
+</mat-menu>
+</div>
+
+<div class="data-container">
+  <div class="align-content-center">
+    <div class="col">
+      <div *ngIf="answer!=null">
+        <div *ngFor="let ans of answer; index as i; first as isFirst">
+
+          <div *ngIf="ans.title != ''">
+            <h1 class="text-center">{{ans.title}}</h1>
+          </div>
+
+          <div *ngIf="ans.data != null">
+            <hr>
+            <div *ngFor="let data of ans.data">
+              <h4>{{data.subtitle}}</h4>
+              <pre style="white-space: pre-wrap;">{{data.body}}</pre>
+
+              <div *ngIf="data.images != null">
+                <div *ngFor="let url of data.images">
+                  <div class="text-center">
+                    <img mat-card-image src="{{url}}" class="w-50" alt="img">
+                  </div>
+                </div>
+                <br>
+              </div>
+
+              <div *ngIf="data.code != null">
+                <div *ngFor="let code of data.code">
+                  <div class="border bg-dark text-white p-4 w-lg-50">
+                    <p class="h-3 text-warning">{{code.title}}</p>
+                    <pre class="text-left" style="white-space: pre-wrap;">{{code.code}}</pre>
+                  </div>
+                  <br>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div *ngIf="ans.sources != ''">
+            <hr>
+            <h3 class="text-center">Fuentes</h3>
+            <pre>{{ans.sources}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<footer class="footer">
+  <app-about></app-about>
+</footer>
+
+
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-container {
+  width: calc(100% - 4%); /* Ajusta el espacio restante cuando el sidebar está cerrado */
+  margin-left: 4%;
+  transition: margin-left 0.5s ease-in-out, width 0.5s ease-in-out; /* Suave transición del contenido */
+}
+
+.index.open ~ .content-container {
+  width: calc(100% - 15%); /* Ajusta el espacio restante cuando el sidebar está abierto */
+  margin-left: 15%;
+}

@@ -32,4 +32,8 @@ export class AppComponent implements OnInit {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
+  handleIndexToggle(logicState: boolean) {
+    this.isSidebarOpen = logicState;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {DataService} from "../data.service";
 import {JSONRecord} from "../JSONRecord";
 
@@ -9,10 +9,18 @@ import {JSONRecord} from "../JSONRecord";
 })
 export class IndexComponent {
 
+  @Output() indexEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  isIndexOpen = true;
+
   constructor(private service: DataService) {}
 
   onSelectOption(fileName: string) {
     this.service.loadJsonByName(fileName);
+  }
+
+  toggleIndex() {
+    this.isIndexOpen = !this.isIndexOpen;
+    this.indexEvent.emit(this.isIndexOpen);
   }
 
 }

@@ -1,5 +1,12 @@
-<div class="container">
-  <ul>
+<div class="index-container" [class]="isIndexOpen ? 'index open' : 'index'">
+
+  <div [class]="isIndexOpen ? 'menu open' : 'menu'" (click)="toggleIndex()">
+    <div [class]="isIndexOpen ? 'bar change' : 'bar'"></div>
+    <div [class]="isIndexOpen ? 'bar change' : 'bar'"></div>
+    <div [class]="isIndexOpen ? 'bar change' : 'bar'"></div>
+  </div>
+
+  <ul [class]="isIndexOpen ? 'options open' : 'options'">
     <li (click)="onSelectOption('TiposDeDatos')">Basicos</li>
     <li (click)="onSelectOption('Avanzado')">Avanzados</li>
     <li (click)="onSelectOption('Apuntadores')">Apuntadores</li>
