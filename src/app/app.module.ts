@@ -18,6 +18,7 @@ import {CdkOverlayOrigin} from "@angular/cdk/overlay";
 import {MatCardImage} from "@angular/material/card";
 import { AboutComponent } from './Components/about/about.component';
 import {NgOptimizedImage} from "@angular/common";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {NgOptimizedImage} from "@angular/common";
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     MatSidenavModule,
     MatCheckboxModule,
     FormsModule,

@@ -1,18 +1,23 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DataService} from "../data.service";
-import {JSONRecord} from "../JSONRecord";
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit{
+
 
   @Output() indexEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   isIndexOpen = true;
 
   constructor(private service: DataService) {}
+
+  ngOnInit(): void {
+
+        throw new Error('Para algo servira este error.');
+    }
 
   onSelectOption(fileName: string) {
     this.service.loadJsonByName(fileName);

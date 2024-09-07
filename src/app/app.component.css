@@ -46,9 +46,7 @@
   width: calc(100% - 15%);
 }
 
-.menu-container {
-  display: flex;
-  align-items: center;
+.title {
   justify-content: space-between;
   margin-bottom: 20px;
   position: sticky;
@@ -57,9 +55,6 @@
   z-index: 1000;
   padding: 10px 0;
   font-family: Consolas, monospace;
-}
-
-.title {
   font-size: 24px;
   font-weight: bold;
   display: flex;

@@ -1,3 +1,18 @@
+//Para cuando se quiera cargar directamente con un metodo del servicio
+
+public getJsonData(): JSONRecord[] {
+    return this.jsonDataSubject.value;
+  }
+
+
+
+
+
+
+
+
+
+
 /*
 Elementos para usar en caso de que sea necesario
 

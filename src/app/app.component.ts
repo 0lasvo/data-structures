@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   isSidebarOpen = true;
 
   ngOnInit(): void {
-    this.onSelectOption('Home');
     this.service.jsonData$.subscribe(
       (data: JSONRecord[]) => {
         this.answer = data;
