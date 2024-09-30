@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './Components/index/index.component';
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
-  { path: 'docs/:fileName', component: IndexComponent }
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

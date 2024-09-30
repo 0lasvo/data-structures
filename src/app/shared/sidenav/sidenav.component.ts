@@ -1,13 +1,12 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DataService} from "../data.service";
+import {Component, EventEmitter, Output} from '@angular/core';
+import {DataService} from "../../docs/data.service";
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrl: './index.component.css'
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrl: './sidenav.component.css'
 })
-export class IndexComponent implements OnInit{
-
+export class SidenavComponent {
 
   @Output() indexEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   isIndexOpen = true;
@@ -16,8 +15,8 @@ export class IndexComponent implements OnInit{
 
   ngOnInit(): void {
 
-        throw new Error('Para algo servira este error.');
-    }
+    throw new Error('Para algo servira este error.');
+  }
 
   onSelectOption(fileName: string) {
     this.service.loadJsonByName(fileName);
@@ -27,5 +26,4 @@ export class IndexComponent implements OnInit{
     this.isIndexOpen = !this.isIndexOpen;
     this.indexEvent.emit(this.isIndexOpen);
   }
-
 }
