@@ -1,4 +1,14 @@
-<router-outlet></router-outlet>
-<Footer class="footer">
-  <app-footer></app-footer>
-</Footer>
+<mat-drawer-container class="mat-container" hasBackdrop="hasBackdrop">
+  <mat-drawer class="drawer-container" #drawer mode="push">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content class="main-container">
+    <ng-container class="main-content">
+      <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+      <router-outlet></router-outlet>
+      <Footer class="footer">
+        <app-footer></app-footer>
+      </Footer>
+    </ng-container>
+  </mat-drawer-content>
+</mat-drawer-container>

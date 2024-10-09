@@ -3,6 +3,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { DocComponent } from './doc/doc.component';
 import {MatCardImage} from "@angular/material/card";
 import {DataService} from "./data.service";
+import {BrowserModule} from "@angular/platform-browser";
 
 
 
@@ -11,9 +12,13 @@ import {DataService} from "./data.service";
     DocComponent,
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     MatCardImage,
     NgOptimizedImage
+  ],
+  exports: [
+    DocComponent,
   ],
   providers: [DataService],
 })
