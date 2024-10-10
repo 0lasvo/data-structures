@@ -20,6 +20,8 @@
 }
 
 .buttons {
+  background-color: whitesmoke;
+  position: fixed;
   padding: 15px;
   width: 100%;
   display: flex;
@@ -32,6 +34,7 @@
 }
 
 .home-icon {
+  cursor: pointer;
   padding: 0 16px;
   font-size: 36px;
   width: max-content;
@@ -50,7 +53,6 @@
   color: white;
   padding: 10px 0;
   text-align: center;
-  position: fixed;
   bottom: 0;
   right: 0;
 }
