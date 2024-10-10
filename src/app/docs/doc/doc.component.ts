@@ -1,44 +1,30 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DataService} from "../data.service";
 import {JSONRecord} from "../JSONRecord";
-import {ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-doc',
   templateUrl: './doc.component.html',
-  styleUrl: './doc.component.css'
+  styleUrls: ['./doc.component.css']
 })
-export class DocComponent implements OnInit, OnDestroy {
+export class DocComponent implements OnInit {
   constructor(
-    // private service: DataService,
-    private route: ActivatedRoute,
-    ) { }
+    private dataService: DataService,
+    private route: ActivatedRoute
+  ) {
+  }
 
-  private subs: Subscription = new Subscription();
-
-  public answer: JSONRecord[] = [];
+  answer: JSONRecord[] | undefined;
 
   ngOnInit(): void {
-    // this.subs.add(
-    //   this.service.jsonData$.subscribe(
-    //     (data: JSONRecord[]) => {
-    //       this.answer = data;
-    //     }
-    //   )
-    // )
-  }
-
-  onSelectOption() {
-    console.log("puta la wea");
-    // this.subs.add(
-    //   this.route.paramMap.subscribe(params => {
-    //     console.log(params.get('fileName'));
-    //   })
-    // )
-    // this.service.loadJsonByName(fileName);
-  }
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
+    this.route.paramMap.subscribe(params => {
+      const fileName = params.get('fileName');
+      if (fileName) {
+        this.dataService.getData(fileName).subscribe((data: JSONRecord[]) => {
+          this.answer = data;
+        });
+      }
+    });
   }
 }

@@ -4,6 +4,7 @@ import { DocComponent } from './doc/doc.component';
 import {MatCardImage} from "@angular/material/card";
 import {DataService} from "./data.service";
 import {DocsRoutingModule} from "./docs.routing.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -15,6 +16,7 @@ import {DocsRoutingModule} from "./docs.routing.module";
     DocsRoutingModule,
     CommonModule,
     MatCardImage,
+    HttpClientModule,
     NgOptimizedImage,
   ],
   exports: [
