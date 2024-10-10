@@ -15,7 +15,7 @@ export class DataService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public loadJsonByName(fileName: string): void {
-    this.router.navigate(['/docs', fileName]);
+    this.router.navigate(['/doc', fileName]);
     this.http.get<JSONRecord[]>(`./assets/json/${fileName}.json`).subscribe(
       (data: JSONRecord[]) => {
         this.jsonDataSubject.next(data);

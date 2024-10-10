@@ -1,12 +1,6 @@
-.footer {
+.mat-container {
   width: 100%;
-  background-color: #222222;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  height: 100%;
 }
 
 .drawer-container {
@@ -18,20 +12,45 @@
   width: max-content;
 }
 
-.mat-container {
-  width: 100%;
-  height: 100%;
-}
-
-.main-content {
+.main-container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
+.buttons {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-button {
+  top: 0;
+}
+
+.home-icon {
+  padding: 0 16px;
+  font-size: 36px;
+  width: max-content;
+  height: max-content;
+}
+
 .main-content {
   width: 100%;
   height: 100%;
   display: flex;
+}
+
+.footer {
+  width: 100%;
+  background-color: #222222;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

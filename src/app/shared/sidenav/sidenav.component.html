@@ -1,40 +1,19 @@
-<!--<div class="index-container">-->
-<!--  <ul>-->
-<!--    <li (click)="onSelectOption('TiposDeDatos')">Basicos</li>-->
-<!--    <li (click)="onSelectOption('Avanzado')">Avanzados</li>-->
-<!--    <li (click)="onSelectOption('Apuntadores')">Apuntadores</li>-->
-<!--    <li (click)="onSelectOption('ArbolesGrafos')">Arboles y Grafos</li>-->
-<!--    <li (click)="onSelectOption('Busqueda')">Busqueda</li>-->
-<!--    <li (click)="onSelectOption('Listas')">Listas</li>-->
-<!--    <li (click)="onSelectOption('Ordenamiento')">Ordenamiento</li>-->
-<!--    <li (click)="onSelectOption('POO')">POO</li>-->
-<!--    <li (click)="onSelectOption('Order')">Order</li>-->
-<!--    <li (click)="onSelectOption('BubbleSort')">Bubble Sort</li>-->
-<!--    <li (click)="onSelectOption('InsertionSort')">Insertion Sort</li>-->
-<!--    <li (click)="onSelectOption('MergeSort')">Merge Sort</li>-->
-<!--    <li (click)="onSelectOption('QuickSort')">Quick Sort</li>-->
-<!--    <li (click)="onSelectOption('SelectionSort')">Selection Sort</li>-->
-<!--  </ul>-->
-<!--</div>-->
-<ng-container class=""></ng-container>
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-    <button mat-icon-button disabled></button>
-    {{node.item}}
-  </mat-tree-node>
-  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding matTreeNodeToggle
-                 [cdkTreeNodeTypeaheadLabel]="node.item">
-    <button mat-icon-button
-            [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
-    {{node.item}}
-    @if (node.isLoading()) {
-      <mat-progress-bar
-        mode="indeterminate"
-        class="example-tree-progress-bar"></mat-progress-bar>
-    }
-  </mat-tree-node>
-</mat-tree>
+<div class="index-container">
+  <mat-nav-list>
+    <a mat-list-item [routerLink]="''">Home</a>
+    <a mat-list-item [routerLink]="'/doc/TiposDeDatos'">Basicos</a>
+    <a mat-list-item [routerLink]="'/doc/Avanzado'">Avanzados</a>
+    <a mat-list-item [routerLink]="'/doc/Apuntadores'">Apuntadores</a>
+    <a mat-list-item [routerLink]="'/doc/ArbolesGrafos'">Arboles y Grafos</a>
+    <a mat-list-item [routerLink]="'/doc/Busqueda'">Busqueda</a>
+    <a mat-list-item [routerLink]="'/doc/Listas'">Listas</a>
+    <a mat-list-item [routerLink]="'/doc/Ordenamiento'">Ordenamiento</a>
+    <a mat-list-item [routerLink]="'/doc/POO'">POO</a>
+    <a mat-list-item [routerLink]="'/doc/Order'">Order</a>
+    <a mat-list-item [routerLink]="'/doc/BubbleSort'">Bubble Sort</a>
+    <a mat-list-item [routerLink]="'/doc/InsertionSort'">Insertion Sort</a>
+    <a mat-list-item [routerLink]="'/doc/MergeSort'">Merge Sort</a>
+    <a mat-list-item [routerLink]="'/doc/QuickSort'">Quick Sort</a>
+    <a mat-list-item [routerLink]="'/doc/SelectionSort'">Selection Sort</a>
+  </mat-nav-list>
+</div>
