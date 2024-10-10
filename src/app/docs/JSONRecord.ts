@@ -1,27 +1,26 @@
 export class JSONRecord {
-  public title: string = '';
-  public sources: string = '';
-  public inPutData: InputData = new InputData();
-  public outPutData: OutputData = new OutputData();
+  public title: any;
+  public sources: any;
+  public inPutData: InputData = new InputData;
+  public outPutData: OutputData = new OutputData;
   public data: Data[] = [];
 }
-
-export class Data {
-  public subtitle: string = '';
-  public body: string = '';
-  public images: string[] = [];
+export class Data{
+  public subtitle: any;
+  public body: any;
+  public images: any;
+  public videos: any;
   public code: Code[] = [];
 }
-
-export class InputData {
+export class InputData{
   public images: string[] = [];
 }
 
-export class OutputData {
+export class OutputData{
   public images: string[] = [];
 }
 
-export class Code {
-  public title: string = '';
-  public code: string = '';
+export class Code{
+  public title: any;
+  public code: any;
 }
