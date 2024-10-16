@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Tipos de Datos Abstractos en C",
+    "sources": "academia-lab.com\nlcc.uma.es",
+    "data": [
+      {
+        "subtitle": "¿Qué son los tipos de datos abstractos?",
+        "body": "Los tipos de datos abstractos (TDA) son modelos matemáticos que definen datos y las operaciones que se pueden realizar sobre ellos, sin especificar cómo se implementan. En otras palabras, un TDA se centra en qué operaciones se pueden realizar y qué comportamiento se espera, sin preocuparse por los detalles de implementación.\n\nCaracterísticas de los Tipos de Datos Abstractos\n1.Definición por Comportamiento: Los TDA se definen por su comportamiento desde el punto de vista del usuario, es decir, los valores posibles y las operaciones permitidas.\n2.Independencia de Implementación: No se especifica cómo se implementan internamente, lo que permite cambiar la implementación sin afectar a los usuarios del TDA.\n3.Operaciones Definidas: Incluyen un conjunto de operaciones que se pueden realizar sobre los datos, como insertar, eliminar, buscar, etc.\n\n",
+        "images":
+        [
+          "./assets/images/abstrac2.jpg"
+        ]
+      },
+      {
+        "subtitle": "Ejemplos de datos abstractos"
+      },
+      {
+        "subtitle": "",
+        "body": "Las listas enlazadas consisten en una secuencia de nodos, donde cada nodo contiene un valor y un puntero al siguiente nodo. Son dinámicas y permiten una inserción y eliminación eficiente de elementos en cualquier posición.",
+        "code": [
+          {
+            "title": "Lista Enlazada",
+            "code": "#include <stdio.h>\n#include <stdlib.h>\n\n// Definir la estructura de un nodo\nstruct Nodo {\n    int dato;\n    struct Nodo* siguiente;\n};\n\n// Función para agregar un nodo al principio de la lista\nvoid agregarNodo(struct Nodo** cabeza, int nuevoDato) {\n    struct Nodo* nuevoNodo = (struct Nodo*) malloc(sizeof(struct Nodo));\n    nuevoNodo->dato = nuevoDato;\n    nuevoNodo->siguiente = *cabeza;\n    *cabeza = nuevoNodo;\n}\n\n// Función para imprimir la lista\nvoid imprimirLista(struct Nodo* nodo) {\n    while (nodo != NULL) {\n        printf(\"%d -> \", nodo->dato);\n        nodo = nodo->siguiente;\n    }\n    printf(\"NULL\\n\");\n}\n\nint main() {\n    struct Nodo* cabeza = NULL;\n    agregarNodo(&cabeza, 1);\n    agregarNodo(&cabeza, 2);\n    agregarNodo(&cabeza, 3);\n    imprimirLista(cabeza);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una pila (stack) es una estructura de datos que sigue el principio de Último en Entrar, Primero en Salir (LIFO). Esto significa que el último elemento añadido es el primero en ser removido. Las operaciones básicas incluyen apilar (push) y desapilar (pop).",
+        "code": [
+          {
+            "title": "Pila",
+            "code": "#include <stdio.h>\n#define MAX 5\n\nint pila[MAX], tope = -1;\n\n// Función para apilar un elemento\nvoid push(int valor) {\n    if (tope == MAX - 1)\n        printf(\"Pila llena\\n\");\n    else\n        pila[++tope] = valor;\n}\n\n// Función para desapilar un elemento\nint pop() {\n    if (tope == -1) {\n        printf(\"Pila vacía\\n\");\n        return -1;\n    } else\n        return pila[tope--];\n}\n}\n\nint main() {\n    push(10);\n    push(20);\n    push(30);\n    printf(\"Elemento desapilado: %d\\n\", pop());\n    printf(\"Elemento desapilado: %d\\n\", pop());\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una cola (queue) es una estructura de datos que sigue el principio de Primero en Entrar, Primero en Salir (FIFO). Los elementos se añaden al final de la cola y se eliminan desde el frente. Las operaciones básicas son encolar (enqueue) y desencolar (dequeue).",
+        "code": [
+          {
+            "title": "Cola (queue)",
+            "code": "#include <stdio.h>\n#define MAX 5\n\nint cola[MAX], frente = -1, final = -1;\n\n// Función para encolar un elemento\nvoid enqueue(int valor) {\n    if (final == MAX - 1)\n        printf(\"Cola llena\\n\");\n    else {\n        if (frente == -1) frente = 0;\n        cola[++final] = valor;\n    }\n}\n\n// Función para desencolar un elemento\nint dequeue() {\n    if (frente == -1) {\n        printf(\"Cola vacía\\n\");\n        return -1;\n    } else {\n        int valor = cola[frente];\n        if (frente == final)\n            frente = final = -1;\n        else\n            frente++;\n        return valor;\n    }\n}\n\nint main() {\n    enqueue(10);\n    enqueue(20);\n    enqueue(30);\n    printf(\"Elemento desencolado: %d\\n\", dequeue());\n    printf(\"Elemento desencolado: %d\\n\", dequeue());\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Un árbol es una estructura jerárquica compuesta por nodos. Cada nodo tiene un valor y punteros a sus nodos hijos. El nodo superior se llama raíz, y los nodos que no tienen hijos se llaman hojas. Los árboles binarios son un tipo común de árbol, donde cada nodo tiene como máximo dos hijos.",
+        "code": [
+          {
+            "title": "Árbol Binario",
+            "code": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Nodo {\n    int dato;\n    struct Nodo* izquierda;\n    struct Nodo* derecha;\n};\n\n// Función para crear un nuevo nodo\nstruct Nodo* nuevoNodo(int valor) {\n    struct Nodo* nodo = (struct Nodo*)malloc(sizeof(struct Nodo));\n    nodo->dato = valor;\n    nodo->izquierda = nodo->derecha = NULL;\n    return nodo;\n}\n\n// Función para recorrer el árbol en orden\nvoid enOrden(struct Nodo* nodo) {\n    if (nodo != NULL) {\n        enOrden(nodo->izquierda);\n        printf(\"%d \", nodo->dato);\n        enOrden(nodo->derecha);\n    }\n}\n\nint main() {\n    struct Nodo* raiz = nuevoNodo(1);\n    raiz->izquierda = nuevoNodo(2);\n    raiz->derecha = nuevoNodo(3);\n    raiz->izquierda->izquierda = nuevoNodo(4);\n    raiz->izquierda->derecha = nuevoNodo(5);\n\n    printf(\"Recorrido en orden: \");\n    enOrden(raiz);\n    return 0;\n}"
+          }
+        ]
+      }
+    ]
+  }
+]

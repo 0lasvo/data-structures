@@ -1,0 +1,55 @@
+[
+  {
+    "title": "Tipos de Datos Estructurados en C",
+    "sources": "cppreference.com\n GeeksforGeeks\n C Programming Language (Kernighan & Ritchie)",
+    "data": [
+      {
+        "subtitle": "¿Qué son los tipos de datos estructurados?",
+        "body": "Los datos estructurados son aquellos que se organizan en un formato específico y predefinido, lo que facilita su lectura y procesamiento tanto por humanos como por máquinas. Estos datos suelen estar organizados en tablas con filas y columnas, donde cada columna representa un atributo y cada fila un registro.\n\nCaracterísticas de los Datos Estructurados\n1.Formato Estandarizado: Los datos tienen un formato fijo, como tablas en bases de datos relacionales.\n2.Fácil Acceso y Procesamiento: Debido a su estructura clara, es sencillo acceder, consultar y manipular estos datos utilizando lenguajes de consulta como SQL.\n3.Datos Cuantitativos: Son adecuados para análisis matemáticos y estadísticos, ya que se pueden contar, medir y realizar operaciones matemáticas con ellos.\n4.Relaciones Definidas: Pueden establecerse relaciones entre diferentes conjuntos de datos mediante claves primarias y foráneas.\n\n",
+        "images": [
+          "./assets/images/structured1.png"
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Los arrays son colecciones de elementos del mismo tipo que se almacenan en ubicaciones contiguas de memoria. Los elementos se acceden mediante un índice, que comienza en 0. Los arrays pueden ser de cualquier tipo de dato y pueden ser de una o varias dimensiones.",
+        "code": [
+          {
+            "title": "Arrays",
+            "code": "#include <stdio.h>\n\nint main() {\n    int numeros[] = {1, 2, 3, 4, 5};\n    for(int i = 0; i < 5; i++) {\n        printf(\"Elemento %d: %d\\n\", i, numeros[i]);\n    }\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Las estructuras (struct) permiten agrupar datos de diferentes tipos bajo un mismo nombre. Los elementos de una estructura, llamados miembros, pueden tener diferentes tipos de datos. Esto permite representar entidades más complejas que los tipos de datos primitivos.",
+        "code": [
+          {
+            "title": "Structs",
+            "code": "#include <stdio.h>\n\nstruct Persona {\n    char nombre[50];\n    int edad;\n    float altura;\n};\n\nint main() {\n    struct Persona persona1 = {\"Juan Perez\", 30, 1.75};\n    printf(\"Nombre: %s\\n\", persona1.nombre);\n    printf(\"Edad: %d\\n\", persona1.edad);\n    printf(\"Altura: %.2f metros\\n\", persona1.altura);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una unión (union) es similar a una estructura, pero todos sus miembros comparten el mismo espacio en memoria. Esto significa que en una unión solo se puede almacenar un valor a la vez, ya que todos los miembros ocupan la misma ubicación de memoria. Son útiles para ahorrar espacio cuando se sabe que solo uno de los miembros será usado a la vez.",
+        "code": [
+          {
+            "title": "Unions",
+            "code": "#include <stdio.h>\n\nunion Datos {\n    int entero;\n    float decimal;\n    char caracter;\n};\n\nint main() {\n    union Datos dato;\n    dato.entero = 10;\n    printf(\"Entero: %d\\n\", dato.entero);\n    dato.decimal = 3.14;\n    printf(\"Decimal: %.2f\\n\", dato.decimal);\n    dato.caracter = 'A';\n    printf(\"Caracter: %c\\n\", dato.caracter);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una enumeración (enum) es un tipo de dato que permite definir un conjunto de constantes enteras con nombres. Las enumeraciones mejoran la legibilidad del código al permitir referirse a estas constantes por nombre en lugar de por su valor numérico. El valor por defecto de la primera constante es 0, y cada constante siguiente incrementa en uno.",
+        "code": [
+          {
+            "title": "Enum",
+            "code": "#include <stdio.h>\n\nenum Dias { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo };\n\nint main() {\n    enum Dias hoy = Miercoles;\n    printf(\"Hoy es el día número: %d\\n\", hoy);\n    return 0;\n}"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -63,10 +63,16 @@
 }
 
 .data-container {
-  margin-top: 20px;
+  margin: 5em;
+}
+
+.code-container {
+  margin-left: 10em;
+  margin-right: 10em;
 }
 
 .footer {
+  margin-top: 20px;
   background-color: #222222;
   color: white;
   padding: 10px 0;

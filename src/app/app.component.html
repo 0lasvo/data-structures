@@ -18,7 +18,7 @@
           <div *ngIf="answer!=null">
             <div *ngFor="let ans of answer; index as i; first as isFirst">
 
-              <div *ngIf="ans.title != ''">
+              <div *ngIf="ans.title != null">
                 <h1 class="text-center">{{ans.title}}</h1>
               </div>
 
@@ -37,7 +37,7 @@
                     <br>
                   </div>
 
-                  <div *ngIf="data.code != null">
+                  <div class="code-container" *ngIf="data.code != null">
                     <div *ngFor="let code of data.code">
                       <div class="border bg-dark text-white p-4 w-lg-50">
                         <p class="h-3 text-warning">{{code.title}}</p>

@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Tipos de Datos en C",
+    "sources": "cppreference.com\nC Programming Language (Kernighan & Ritchie)\nGeeksforGeeks",
+    "data": [
+      {
+        "title": "",
+        "body": "Un tipo de dato informatico, es un atributo de los datos que indica al ordenador sobre la calse de datos que se va a manejar. \nEsto incluye imponer restricciones en los datos, como que valores pueden tomar y que operaciones se pueden realizar. A continuación se muestra un ejemplo de algunos de estos tipos de datos, principalmente los mas básicos para dar una pequeña introducción al tema.\n\n\n"
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'int' es uno de los tipos de datos primitivos más comunes en C y se utiliza para almacenar números enteros. El tamaño de un 'int' puede variar según la arquitectura, pero en la mayoría de los sistemas ocupa 4 bytes, lo que permite almacenar valores entre -2,147,483,648 y 2,147,483,647 en sistemas de 32 bits. Dependiendo del modificador ('short' o 'long'), el tamaño puede cambiar.",
+        "code": [
+          {
+            "title": "Tipo de dato 'int'",
+            "code": "#include <stdio.h>\nint main() {\n    int numero = 42;\n    printf(\"El número es: %d\\n\", numero);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'float' se utiliza para representar números de punto flotante, es decir, números que tienen una parte fraccionaria. Un 'float' tiene una precisión simple y generalmente ocupa 4 bytes de memoria, permitiendo almacenar valores con una precisión de aproximadamente 7 dígitos decimales.",
+        "code": [
+          {
+            "title": "Tipo de dato 'float'",
+            "code": "#include <stdio.h>\nint main() {\n    float pi = 3.14159;\n    printf(\"El valor de pi es: %.5f\\n\", pi);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'double' se utiliza para representar números de punto flotante con doble precisión. Ocupa 8 bytes en memoria y tiene una mayor capacidad de precisión que el 'float', pudiendo almacenar números con hasta 15 dígitos decimales de precisión.",
+        "code": [
+          {
+            "title": "Tipo de dato 'double'",
+            "code": "#include <stdio.h>\nint main() {\n    double gravedad = 9.80665;\n    printf(\"La gravedad es: %.5f\\n\", gravedad);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'char' se utiliza para almacenar un solo carácter. Ocupa 1 byte de memoria y es comúnmente usado para representar letras, dígitos o símbolos en formato ASCII. También puede utilizarse para almacenar pequeños valores numéricos.",
+        "code": [
+          {
+            "title": "Tipo de dato 'char'",
+            "code": "#include <stdio.h>\nint main() {\n    char letra = 'A';\n    printf(\"La letra es: %c\\n\", letra);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'unsigned int' se utiliza para almacenar solo números enteros positivos. Al ser sin signo, puede representar el doble de valores positivos que un 'int' normal. En un sistema de 32 bits, un 'unsigned int' puede almacenar valores desde 0 hasta 4,294,967,295.",
+        "code": [
+          {
+            "title": "Tipo de dato 'unsigned int'",
+            "code": "#include <stdio.h>\nint main() {\n    unsigned int positivo = 4294967295;\n    printf(\"El número positivo es: %u\\n\", positivo);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una 'struct' es una colección de variables de diferentes tipos agrupadas bajo un mismo nombre. Se utiliza para almacenar datos relacionados y permite acceder a cada miembro individualmente. Las estructuras son útiles cuando se necesita agrupar múltiples datos que pertenecen a un mismo objeto.",
+        "code": [
+          {
+            "title": "Tipo de dato 'struct'",
+            "code": "#include <stdio.h>\nstruct Persona {\n    char nombre[50];\n    int edad;\n};\nint main() {\n    struct Persona p1 = {\"Juan\", 25};\n    printf(\"Nombre: %s, Edad: %d\\n\", p1.nombre, p1.edad);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Una 'union' es similar a una 'struct', pero todos sus miembros comparten el mismo espacio en memoria. Esto significa que solo se puede almacenar un valor a la vez. Las uniones son útiles cuando se quiere ahorrar espacio en memoria y solo se necesita almacenar uno de varios tipos posibles de datos.",
+        "code": [
+          {
+            "title": "Tipo de dato 'union'",
+            "code": "#include <stdio.h>\nunion Datos {\n    int numero;\n    float decimal;\n};\nint main() {\n    union Datos d;\n    d.numero = 42;\n    printf(\"Número: %d\\n\", d.numero);\n    d.decimal = 3.14;\n    printf(\"Decimal: %.2f\\n\", d.decimal);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Un 'enum' es un tipo de dato que define un conjunto de constantes enteras con nombres asociados. Es útil para mejorar la legibilidad del código al permitir el uso de nombres descriptivos en lugar de números. Cada valor en un 'enum' es equivalente a un entero subyacente.",
+        "code": [
+          {
+            "title": "Tipo de dato 'enum'",
+            "code": "#include <stdio.h>\nenum Dias { Lunes, Martes, Miercoles, Jueves, Viernes };\nint main() {\n    enum Dias hoy = Miercoles;\n    printf(\"Hoy es: %d\\n\", hoy);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "El tipo 'void' en C no representa ningún tipo de dato en sí mismo. Se utiliza principalmente en funciones que no devuelven ningún valor. También se puede utilizar para declarar apuntadores genéricos que pueden apuntar a cualquier tipo de dato.",
+        "code": [
+          {
+            "title": "Tipo de dato 'void' en una función",
+            "code": "#include <stdio.h>\nvoid imprimirMensaje() {\n    printf(\"Este es un mensaje\\n\");\n}\nint main() {\n    imprimirMensaje();\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Los apuntadores son variables que almacenan la dirección de memoria de otra variable. Se utilizan para manipular directamente la memoria y para manejar matrices y cadenas. Un apuntador puede apuntar a cualquier tipo de dato en C.",
+        "code": [
+          {
+            "title": "Ejemplo de uso de apuntadores",
+            "code": "#include <stdio.h>\nint main() {\n    int numero = 10;\n    int *apuntador = &numero;\n    printf(\"Valor de numero: %d\\n\", *apuntador);\n    return 0;\n}"
+          }
+        ]
+      },
+      {
+        "subtitle": "",
+        "body": "Un array es una colección de elementos del mismo tipo almacenados en memoria contigua. En C, los arrays pueden ser de uno o más dimensiones. Se accede a los elementos de un array utilizando su índice, comenzando desde 0.",
+        "code": [
+          {
+            "title": "Ejemplo de uso de array",
+            "code": "#include <stdio.h>\nint main() {\n    int numeros[] = {1, 2, 3, 4, 5};\n    printf(\"Primer número: %d\\n\", numeros[0]);\n    return 0;\n}"
+          }
+        ]
+      }
+    ]
+  }
+]
