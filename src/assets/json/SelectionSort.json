@@ -1,7 +1,6 @@
 [
   {
     "title": "Selection Sort",
-    "code": "#include <stdio.h>\n\nvoid selectionSort(int arr[], int n) {\n    int i, j, min_idx;\n    for (i = 0; i < n-1; i++) {\n        min_idx = i;\n        for (j = i+1; j < n; j++)\n            if (arr[j] < arr[min_idx])\n                min_idx = j;\n        int temp = arr[min_idx];\n        arr[min_idx] = arr[i];\n        arr[i] = temp;\n    }\n}\n\nint main() {\n    int arr[] = {64, 25, 12, 22, 11};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    selectionSort(arr, n);\n    printf(\"Sorted array: \\n\");\n    for (int i=0; i < n; i++)\n        printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
     "sources": "https://www.geeksforgeeks.org/selection-sort/",
     "inPutData": {
       "images":[]
@@ -11,9 +10,22 @@
     },
     "data":[
       {
-        "subtitle":"Teoría",
+        "subtitle":"¿Qué es selection sort?",
         "body": "Selection Sort es un algoritmo de ordenamiento que funciona dividiendo la lista en dos partes: una parte ordenada y una parte desordenada. En cada iteración, el algoritmo selecciona el elemento más pequeño de la parte desordenada y lo intercambia con el primer elemento de esa parte, moviéndolo a la parte ordenada. La complejidad temporal del Selection Sort es O(n^2).",
-        "images": []
+        "images": [],
+        "videos": [
+          "./assets/videos/E.mp4"
+        ]
+      },
+      {
+        "subtitle": "",
+        "code":
+          [
+            {
+              "title": "Selection Sort",
+              "code": "#include <stdio.h>\n\nvoid selectionSort(int arr[], int n) {\n    int i, j, min_idx;\n    for (i = 0; i < n-1; i++) {\n        min_idx = i;\n        for (j = i+1; j < n; j++)\n            if (arr[j] < arr[min_idx])\n                min_idx = j;\n        int temp = arr[min_idx];\n        arr[min_idx] = arr[i];\n        arr[i] = temp;\n    }\n}\n\nint main() {\n    int arr[] = {64, 25, 12, 22, 11};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    selectionSort(arr, n);\n    printf(\"Sorted array: \\n\");\n    for (int i=0; i < n; i++)\n        printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}"
+            }
+          ]
       }
     ]
   }

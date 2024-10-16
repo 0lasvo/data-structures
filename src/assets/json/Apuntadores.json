@@ -60,7 +60,10 @@
       {
         "subtitle": "Referencia",
         "body": "Referencia de un puntero: Se puede alterar una variable a la que apunta un puntero. Para ello se usa el operador de referencia, que es el asterisco: \n          * puntero = 45;",
-        "images": []
+        "images": [],
+        "videos": [
+          "./assets/videos/C.mp4"
+        ]
       }
     ]
   }
